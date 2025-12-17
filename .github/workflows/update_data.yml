@@ -1,0 +1,37 @@
+name: Live Data Update
+
+on:
+  schedule:
+    - cron: '0 */12 * * *' # Run every 12 hours
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  scan-and-update:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Run Full System Scan (Update Data)
+      run: node full_system_scan.js
+      timeout-minutes: 50 # Fail if stuck > 50 mins
+
+    - name: Commit and Push Changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add public/known_domains.json
+        git commit -m "🚀 Auto-Update: Wallet Data" || echo "No changes to commit"
+        git push
