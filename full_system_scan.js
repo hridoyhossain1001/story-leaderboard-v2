@@ -81,7 +81,13 @@ async function run() {
 
     let existingData = [];
     if (fs.existsSync(FILE)) {
-        existingData = JSON.parse(fs.readFileSync(FILE, 'utf-8'));
+        try {
+            const rawData = fs.readFileSync(FILE, 'utf-8');
+            existingData = JSON.parse(rawData);
+        } catch (err) {
+            console.error("⚠️ Error reading known_domains.json. Starting fresh/empty.", err.message);
+            existingData = [];
+        }
     }
 
     // Remove duplicates
