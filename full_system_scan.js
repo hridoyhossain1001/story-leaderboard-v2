@@ -80,6 +80,12 @@ async function run() {
     console.log("� Starting Full System Scan (OPTIMIZED SPEED 5x)...");
 
     let existingData = [];
+    // Ensure checks for directory and file existence
+    const dir = path.dirname(FILE);
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+    }
+
     if (fs.existsSync(FILE)) {
         try {
             const rawData = fs.readFileSync(FILE, 'utf-8');
@@ -88,6 +94,9 @@ async function run() {
             console.error("⚠️ Error reading known_domains.json. Starting fresh/empty.", err.message);
             existingData = [];
         }
+    } else {
+        console.log("⚠️ known_domains.json not found. Creating new empty file.");
+        fs.writeFileSync(FILE, JSON.stringify([], null, 2));
     }
 
     // Remove duplicates
