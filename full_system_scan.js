@@ -10,65 +10,58 @@ const CONCURRENCY = 5; // Safe Speed (5 wallets at once)
 const LIST_FILE = 'Story.txt';
 
 async function get(url) {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
         const req = https.get(url, {
-            headers: {
-                'User-Agent': 'Mozilla/5.0',
-                'Accept': 'application/json'
-            },
-            timeout: 15000
+            headers: { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json' },
+            timeout: 10000
         }, (res) => {
+            if (res.statusCode === 429) {
+                return reject(new Error(`429`)); // Rate Limit
+            }
+            if (res.statusCode < 200 || res.statusCode > 299) {
+                return reject(new Error(`HTTP ${res.statusCode}`));
+            }
             let data = '';
             res.on('data', chunk => data += chunk);
             res.on('end', () => {
                 try {
                     resolve(JSON.parse(data));
                 } catch {
-                    resolve({});
+                    reject(new Error('Invalid JSON'));
                 }
             });
         });
-
-        req.on('error', () => resolve({}));
+        req.on('error', (err) => reject(err));
         req.on('timeout', () => req.destroy());
     });
 }
 
-async function fetchWalletDetails(address) {
-    // 1. Get Balance
-    // 2. Get Tx Count
-    // 3. Get Last Transaction Time
+async function fetchWalletDetails(address, retries = 3) {
     try {
         const [info, counters, txs] = await Promise.all([
             get(`${STORY_API_BASE}/addresses/${address}`),
             get(`${STORY_API_BASE}/addresses/${address}/counters`),
-            get(`${STORY_API_BASE}/addresses/${address}/transactions`) // Fetch latest tx
+            get(`${STORY_API_BASE}/addresses/${address}/transactions`)
         ]);
 
         let balance = "0.00";
-        if (info && info.coin_balance) {
-            balance = (Number(BigInt(info.coin_balance)) / 1e18).toFixed(2);
-        }
+        if (info && info.coin_balance) balance = (Number(BigInt(info.coin_balance)) / 1e18).toFixed(2);
 
         let txCount = 0;
-        if (counters && counters.transactions_count) {
-            txCount = parseInt(counters.transactions_count);
-        }
+        if (counters && counters.transactions_count) txCount = parseInt(counters.transactions_count);
 
-        // Fix huge/weird balances
-        if (parseFloat(balance) > 100000000) {
-            balance = "0.00";
-        }
+        if (parseFloat(balance) > 100000000) balance = "0.00";
 
-        // Determine Last Active from actual TX history
         let lastActive = 0;
-        if (txs && txs.items && txs.items.length > 0) {
-            lastActive = Date.parse(txs.items[0].timestamp);
-        }
+        if (txs && txs.items && txs.items.length > 0) lastActive = Date.parse(txs.items[0].timestamp);
 
         return { balance, txCount, lastActive, success: true };
     } catch (e) {
-        return { success: false };
+        if (retries > 0) {
+            await sleep(2000); // Wait 2s before retry
+            return fetchWalletDetails(address, retries - 1);
+        }
+        return { success: false, error: e.message };
     }
 }
 
@@ -145,7 +138,7 @@ async function run() {
                 const timeStr = wallet.last_active ? new Date(wallet.last_active).toLocaleString() : "Never";
                 console.log(`[✅ UPDATED] ${wallet.address} | Balance: ${wallet.balance} | PM Txs: ${wallet.transaction_count} | Last Active: ${timeStr}`);
             } else {
-                console.log(`❌ Failed: ${wallet.address.slice(0, 8)}...`);
+                console.log(`❌ Failed: ${wallet.address} | Error: ${data.error}`);
             }
             return true;
         });
