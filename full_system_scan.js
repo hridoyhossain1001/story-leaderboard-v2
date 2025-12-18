@@ -143,7 +143,7 @@ async function run() {
                     wallet.last_active = data.lastActive;
                 }
                 const timeStr = wallet.last_active ? new Date(wallet.last_active).toLocaleString() : "Never";
-                console.log(`✅ ${wallet.address.slice(0, 8)}... | Bal: ${wallet.balance.padEnd(6)} | Tx: ${String(wallet.transaction_count).padEnd(4)} | Last: ${timeStr}`);
+                console.log(`[✅ UPDATED] ${wallet.address} | Balance: ${wallet.balance} | PM Txs: ${wallet.transaction_count} | Last Active: ${timeStr}`);
             } else {
                 console.log(`❌ Failed: ${wallet.address.slice(0, 8)}...`);
             }
