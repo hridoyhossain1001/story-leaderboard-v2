@@ -7,7 +7,7 @@ const STORY_API_BASE = 'https://www.storyscan.io/api/v2';
 
 // OPTIMIZED SETTINGS
 // STRICT SAFE MODE
-const CONCURRENCY = 2; // Scanning 2 wallets at a time (OPTIMAL)
+const CONCURRENCY = 3; // Scanning 2 wallets at a time (OPTIMAL)
 const LIST_FILE = 'Story.txt';
 
 async function get(url) {
