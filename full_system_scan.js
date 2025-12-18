@@ -6,7 +6,8 @@ const FILE = path.join(__dirname, 'public', 'known_domains.json');
 const STORY_API_BASE = 'https://www.storyscan.io/api/v2';
 
 // OPTIMIZED SETTINGS
-const CONCURRENCY = 5; // Safe Speed (5 wallets at once)
+// STRICT SAFE MODE
+const CONCURRENCY = 2; // Scanning 2 wallets at a time (OPTIMAL)
 const LIST_FILE = 'Story.txt';
 
 async function get(url) {
@@ -36,7 +37,7 @@ async function get(url) {
     });
 }
 
-async function fetchWalletDetails(address, retries = 3) {
+async function fetchWalletDetails(address, retries = 5) {
     try {
         const [info, counters, txs] = await Promise.all([
             get(`${STORY_API_BASE}/addresses/${address}`),
@@ -58,7 +59,9 @@ async function fetchWalletDetails(address, retries = 3) {
         return { balance, txCount, lastActive, success: true };
     } catch (e) {
         if (retries > 0) {
-            await sleep(2000); // Wait 2s before retry
+            const waitTime = e.message.includes('429') ? 10000 : 3000; // Wait 10s for Rate Limit, 3s for others
+            console.log(`⚠️ Rate Limit (429) hit for ${address}... Waiting ${waitTime / 1000}s... (Retries left: ${retries})`);
+            await sleep(waitTime);
             return fetchWalletDetails(address, retries - 1);
         }
         return { success: false, error: e.message };
@@ -70,7 +73,7 @@ async function sleep(ms) {
 }
 
 async function run() {
-    console.log("� Starting Full System Scan (OPTIMIZED SPEED 5x)...");
+    console.log(" Starting Full System Scan (OPTIMIZED SPEED 5x)...");
 
     let existingData = [];
     // Ensure checks for directory and file existence
