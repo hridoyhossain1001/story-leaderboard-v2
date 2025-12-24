@@ -18,7 +18,7 @@
   {
     "address": "0x1A8d8Baed2161e145686d20e579775C8ca032216",
     "name": "kittz.ip",
-    "last_active": 1766422472000,
+    "last_active": 1766591505000,
     "tx_count": "1448",
     "balance": "243.89",
     "first_seen_tx": "0x1118267883c3150bc297dea1eff25b6bb9e203ace1c778d42dd032d7575602b2",
@@ -36,9 +36,9 @@
   {
     "address": "0x71eba17F7D02E686885cc6fDcd72d17fb7df33c6",
     "name": "youngseries.ip",
-    "last_active": 1766421973000,
+    "last_active": 1766592839000,
     "tx_count": "226",
-    "balance": "7.18",
+    "balance": "7.11",
     "first_seen_tx": "0xf889f67336f047a0b05cd67013046fe3314453c8fb70d1a4cb707c985e10cf98",
     "transaction_count": 243
   },
@@ -197,9 +197,9 @@
   {
     "address": "0x0f0aBa0710AD81E74EfA24Ceb1e944f089c99138",
     "name": "777777.ip",
-    "balance": "0.95",
+    "balance": "2.20",
     "tx_count": 62,
-    "last_active": 1766422000000,
+    "last_active": 1766592441000,
     "transaction_count": 76
   },
   {
@@ -1319,7 +1319,7 @@
     "name": "beatxml.ip",
     "balance": "1.23",
     "tx_count": 675,
-    "last_active": 1766468238000,
+    "last_active": 1766592383000,
     "transaction_count": 676
   },
   {
@@ -1447,7 +1447,7 @@
     "name": "daveynfts.ip",
     "balance": "57.24",
     "tx_count": 911,
-    "last_active": 1765112600000,
+    "last_active": 1766593260000,
     "transaction_count": 917
   },
   {
@@ -1456,7 +1456,7 @@
     "balance": "27.83",
     "tx_count": 1994,
     "last_active": 1766581768000,
-    "transaction_count": 2043
+    "transaction_count": 2044
   },
   {
     "address": "0x46023Ea3D4a2770FDDAbbb65219D3db19E9cEDa2",
@@ -2640,7 +2640,7 @@
     "balance": "3.81",
     "tx_count": 547,
     "last_active": 1766583920000,
-    "transaction_count": 590
+    "transaction_count": 602
   },
   {
     "address": "0xf68D9e7cdb331fa9670f9716Fc4A816438D3263b",
@@ -2767,7 +2767,7 @@
     "name": "piroteehnik.ip",
     "balance": "0.12",
     "tx_count": 16,
-    "last_active": 1741208148000,
+    "last_active": 1766588707000,
     "transaction_count": 25
   },
   {
@@ -3455,7 +3455,7 @@
     "name": "sanjay.ip",
     "balance": "24.48",
     "tx_count": 211,
-    "last_active": 1766422874000,
+    "last_active": 1766592814000,
     "transaction_count": 313
   },
   {
@@ -4615,7 +4615,7 @@
     "name": "tymur.ip",
     "balance": "0.00",
     "tx_count": 280,
-    "last_active": 1766519300000,
+    "last_active": 1766589512000,
     "transaction_count": 281
   },
   {
@@ -7855,7 +7855,7 @@
     "name": "nicol3.ip",
     "balance": "0.00",
     "tx_count": 179,
-    "last_active": 1765734900000,
+    "last_active": 1766588025000,
     "transaction_count": 181
   },
   {
@@ -10040,7 +10040,7 @@
     "balance": "1.00",
     "tx_count": 81,
     "last_active": 1766581761000,
-    "transaction_count": 81
+    "transaction_count": 82
   },
   {
     "address": "0x8835ca99EB3A964301863EFEd8f6b97e914F3a51",
@@ -10280,7 +10280,7 @@
     "balance": "4.79",
     "tx_count": 121,
     "last_active": 1766584459000,
-    "transaction_count": 463
+    "transaction_count": 465
   },
   {
     "address": "0x86098D1A64F5c6c916Ce3262834983Fe80C1631c",
@@ -10992,7 +10992,7 @@
     "balance": "0.64",
     "tx_count": 4478,
     "last_active": 1766581777000,
-    "transaction_count": 4516
+    "transaction_count": 4517
   },
   {
     "address": "0x7f6D50B20f80B8B83be549c0BF035F83dD3C4CD2",
@@ -11167,7 +11167,7 @@
     "name": "ranjeet.ip",
     "balance": "3.87",
     "tx_count": 435,
-    "last_active": 1766422886000,
+    "last_active": 1766591964000,
     "transaction_count": 457
   },
   {
@@ -12583,7 +12583,7 @@
     "name": "qazzaq.ip",
     "balance": "0.04",
     "tx_count": 0,
-    "last_active": 1741784661000,
+    "last_active": 1766587574000,
     "transaction_count": 5
   },
   {
@@ -16503,7 +16503,7 @@
     "name": "alli777.ip",
     "balance": "22.27",
     "tx_count": 438,
-    "last_active": 1766422310000,
+    "last_active": 1766588499000,
     "transaction_count": 467
   },
   {
@@ -19581,9 +19581,9 @@
   {
     "address": "0x000a509BE6Ab7c71dF6b395d73DDaC1D8d5CAeF5",
     "name": "ahmadghazavi.ip",
-    "balance": "0.13",
+    "balance": "0.30",
     "tx_count": 142,
-    "last_active": 1766496901000,
+    "last_active": 1766592472000,
     "transaction_count": 210
   },
   {
@@ -19689,9 +19689,9 @@
   {
     "address": "0xfb69ABfADd1A6f1929e988f41D2AAb0d09c48e63",
     "name": "mythwarrior.ip",
-    "balance": "0.22",
+    "balance": "0.18",
     "transaction_count": 505,
-    "last_active": 1761065585000
+    "last_active": 1766589388000
   },
   {
     "address": "0xfb693aDA9684aab47215719Be5feF212A09F51e2",
@@ -19822,7 +19822,7 @@
   {
     "address": "0xE08c0aEa2DA99b668E8121f4d922Ef8A2E3B8a10",
     "name": "spidernode.ip",
-    "balance": "69.05",
+    "balance": "69.08",
     "transaction_count": 5,
     "last_active": 1741458876000
   },
@@ -20494,9 +20494,9 @@
   {
     "address": "0xD8c719fc4f3e563e2CD57bae71eE14845c510B74",
     "name": "sonu.ip",
-    "balance": "47.53",
+    "balance": "25.53",
     "transaction_count": 439,
-    "last_active": 1766505712000
+    "last_active": 1766593126000
   },
   {
     "address": "0xd8C3fA17718f34EA92749E9e1Ff7341A936bD5A2",
@@ -21014,14 +21014,14 @@
     "name": "soltys.ip",
     "balance": "0.09",
     "transaction_count": 4789,
-    "last_active": 1766533825000
+    "last_active": 1766594012000
   },
   {
     "address": "0xB9cBE4c2f6400118ABdA5f3c79fC2295F625Fa27",
     "name": "sirius.ip",
     "balance": "1.72",
     "transaction_count": 1437,
-    "last_active": 1766503588000
+    "last_active": 1766593989000
   },
   {
     "address": "0xb9C14FF39213cF2772764C65B6d9867D0E36424d",
@@ -21831,7 +21831,7 @@
   {
     "address": "0x9a3d947f3712b967a5bb81b19208ddbAEf3533AE",
     "name": "originstake.ip",
-    "balance": "156.81",
+    "balance": "156.84",
     "transaction_count": 6,
     "last_active": 1741365030000
   },
@@ -21958,7 +21958,7 @@
     "address": "0x994AE9df7F5b32C18c2B07ef2A89fdfaB59C0207",
     "name": "milan.ip",
     "balance": "9.18",
-    "transaction_count": 251,
+    "transaction_count": 252,
     "last_active": 1766583466000
   },
   {
@@ -22302,7 +22302,7 @@
     "name": "ozymandias.ip",
     "balance": "0.55",
     "transaction_count": 219,
-    "last_active": 1764584308000
+    "last_active": 1766592041000
   },
   {
     "address": "0x95FCfC9b87Fd25dD227038193Ca2F4cc01F06187",
@@ -22560,7 +22560,7 @@
     "address": "0x933107CE8C1337282CAeD40c89BAD8Bfe6E5DC98",
     "name": "yarik.ip",
     "balance": "3.52",
-    "transaction_count": 54,
+    "transaction_count": 55,
     "last_active": 1766582364000
   },
   {
@@ -25290,7 +25290,7 @@
     "address": "0x2d81516A0C933f9866cB822DcB26184B76C709C3",
     "name": "scrud.ip",
     "balance": "1.28",
-    "transaction_count": 1648,
+    "transaction_count": 1649,
     "last_active": 1766583697000
   },
   {
@@ -26193,7 +26193,7 @@
     "address": "0x0bf850d87D50e8A271F5E25d75Fe6D69B1593349",
     "name": "lizya.ip",
     "balance": "5.24",
-    "transaction_count": 29,
+    "transaction_count": 30,
     "last_active": 1766582411000
   },
   {
@@ -26493,9 +26493,9 @@
   {
     "address": "0x19FFDa63B0fbaa3a51e68c894e97ba0C152003d6",
     "name": "stevenx.ip",
-    "balance": "14.19",
+    "balance": "14.12",
     "transaction_count": 479,
-    "last_active": 1766505366000
+    "last_active": 1766592393000
   },
   {
     "address": "0xd391885c212730C11f18B3f8d31b30970E136F02",
@@ -26605,9 +26605,9 @@
   {
     "address": "0xf9dc21E98bdD3bd3002EB2BE593B6FE15c835DcC",
     "name": "Unknown",
-    "balance": "20.09",
+    "balance": "20.00",
     "transaction_count": 1066,
-    "last_active": 1766445358000
+    "last_active": 1766593890000
   },
   {
     "address": "0xEd65954A63996a2329DF74de214FF891A5068572",
@@ -26683,8 +26683,8 @@
     "address": "0x1Ad8F11Db7b452D12a6F886b6eead9F05C71a986",
     "name": "Unknown",
     "balance": "0.10",
-    "transaction_count": 40236,
-    "last_active": 1766587391000
+    "transaction_count": 40252,
+    "last_active": 1766594667000
   },
   {
     "address": "0xE07389421953cd2cf3D2B71519681c204cE325BB",
@@ -27173,7 +27173,7 @@
     "address": "0xa61f23023c9937236080840e1e58E0314CC95b58",
     "name": "Unknown",
     "balance": "6.75",
-    "transaction_count": 583,
+    "transaction_count": 587,
     "last_active": 1766587483000
   },
   {
@@ -27286,7 +27286,7 @@
     "name": "Unknown",
     "balance": "0.51",
     "transaction_count": 64,
-    "last_active": 1766421809000
+    "last_active": 1766592611000
   },
   {
     "address": "0x9848E9047c6D4C8F35aDdF137B4b855B4558B2Ee",
@@ -27586,7 +27586,7 @@
     "address": "0x530AeF31073a40EFF1251F8d5154f2444a29Fe3E",
     "name": "Unknown",
     "balance": "3.17",
-    "transaction_count": 116,
+    "transaction_count": 117,
     "last_active": 1766582586000
   },
   {
