@@ -27,33 +27,40 @@ export function WalletDetailsModal({ isOpen, onClose, address, name, precalculat
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
+    // EFFECT 1: Fetch Data on Open (Only if needed)
     useEffect(() => {
         if (isOpen && address) {
-            setTransactions([]); // Clear previous data
-
-            // OPTIMIZATION: Use pre-calculated stats if available!
-            if (precalculatedStats && precalculatedStats[activeTab]) {
-                setStats(precalculatedStats[activeTab]);
+            // If we have pre-calculated stats, we DON'T need to fetch history.
+            // We trust the pre-calc is complete for all tabs.
+            if (precalculatedStats) {
                 setLoading(false);
-                // We still fetch history in background? Maybe not needed for speed.
-                // If user wants fresh data, they can wait for next scan or we fetch silently?
-                // For now, if we have stats, we prefer speed.
-                // BUT: fetching history allows "switching tabs" without pre-calc if pre-calc missing?
-                // actually full_system_scan pre-calcs ALL tabs.
                 return;
             }
 
+            // Otherwise, fetch history once.
+            setTransactions([]);
             setStats(null);
             fetchHistory(address);
         }
-    }, [isOpen, address, activeTab, precalculatedStats]); // Add activeTab to deps so it re-checks on tab change
+    }, [isOpen, address]); // REMOVED activeTab
 
-    // Only calculate from transactions if we DON'T have pre-calculated stats
+    // EFFECT 2: Update UI when Tab changes or Data arrives
     useEffect(() => {
-        if (transactions.length >= 0 && (!precalculatedStats || !precalculatedStats[activeTab])) {
-            if (transactions.length > 0) calculateStats();
+        if (!isOpen) return;
+
+        if (precalculatedStats && precalculatedStats[activeTab]) {
+            setStats(precalculatedStats[activeTab]);
+            setLoading(false);
+        } else {
+            // Fallback: Calculate from fetched transactions
+            if (transactions.length > 0) {
+                calculateStats();
+            } else if (!loading && !precalculatedStats) {
+                // No data yet
+            }
         }
-    }, [transactions, activeTab]);
+    }, [activeTab, precalculatedStats, transactions, isOpen, loading]);
+
 
     const calculateStats = () => {
         // ... (existing logic)
