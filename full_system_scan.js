@@ -115,10 +115,14 @@ async function fetchWalletDetails(address, retries = 5) {
                 const isError = tx.status === 'error';
 
                 // SPAM LOGIC:
-                // 1. Incoming & 0 Value = Spam
-                // 2. Outgoing & 0 Value (Swap/Contract Call) = Spam (As per user request)
-                // 3. Error Status = Spam
-                const isSpam = (value === 0n) || isError;
+                // 1. Error Status = Spam
+                // 2. Value 0 AND Not a Contract Interaction (Swap/Token Transfer) = Spam
+
+                // key checks: has input data OR tx_types includes contract/token stuff
+                const hasInput = tx.raw_input && tx.raw_input !== '0x';
+                const isContractInteraction = hasInput || (tx.transaction_types && (tx.transaction_types.includes('contract_call') || tx.transaction_types.includes('token_transfer')));
+
+                const isSpam = isError || (value === 0n && !isContractInteraction);
 
                 if (!isSpam) {
                     // It's a valid transaction
