@@ -6,6 +6,7 @@ interface WalletDetailsModalProps {
     onClose: () => void;
     address: string;
     name: string;
+    precalculatedStats?: Record<string, { count: number; volume: string }>;
 }
 
 const formatVol = (wei: bigint) => {
@@ -19,7 +20,7 @@ type TimeWindow = '24h' | '3d' | '7d' | '30d' | '90d' | 'all';
 
 const API_BASE = 'https://www.storyscan.io/api/v2';
 
-export function WalletDetailsModal({ isOpen, onClose, address, name }: WalletDetailsModalProps) {
+export function WalletDetailsModal({ isOpen, onClose, address, name, precalculatedStats }: WalletDetailsModalProps) {
     const [activeTab, setActiveTab] = useState<TimeWindow>('24h');
     const [stats, setStats] = useState<{ count: number; volume: string } | null>(null);
     const [transactions, setTransactions] = useState<any[]>([]);
@@ -29,18 +30,33 @@ export function WalletDetailsModal({ isOpen, onClose, address, name }: WalletDet
     useEffect(() => {
         if (isOpen && address) {
             setTransactions([]); // Clear previous data
+
+            // OPTIMIZATION: Use pre-calculated stats if available!
+            if (precalculatedStats && precalculatedStats[activeTab]) {
+                setStats(precalculatedStats[activeTab]);
+                setLoading(false);
+                // We still fetch history in background? Maybe not needed for speed.
+                // If user wants fresh data, they can wait for next scan or we fetch silently?
+                // For now, if we have stats, we prefer speed.
+                // BUT: fetching history allows "switching tabs" without pre-calc if pre-calc missing?
+                // actually full_system_scan pre-calcs ALL tabs.
+                return;
+            }
+
             setStats(null);
             fetchHistory(address);
         }
-    }, [isOpen, address]);
+    }, [isOpen, address, activeTab, precalculatedStats]); // Add activeTab to deps so it re-checks on tab change
 
+    // Only calculate from transactions if we DON'T have pre-calculated stats
     useEffect(() => {
-        if (transactions.length >= 0) {
-            calculateStats();
+        if (transactions.length >= 0 && (!precalculatedStats || !precalculatedStats[activeTab])) {
+            if (transactions.length > 0) calculateStats();
         }
     }, [transactions, activeTab]);
 
     const calculateStats = () => {
+        // ... (existing logic)
         const now = new Date();
         const timeWindows = {
             '24h': 24 * 60 * 60 * 1000,

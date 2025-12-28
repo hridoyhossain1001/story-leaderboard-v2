@@ -224,6 +224,7 @@ export function LeaderboardTable() {
                 onClose={() => setSelectedWallet(null)}
                 address={selectedWallet?.address || ''}
                 name={selectedWallet?.name || ''}
+                precalculatedStats={(selectedWallet as any)?.last_stats}
             />
         </div >
     );

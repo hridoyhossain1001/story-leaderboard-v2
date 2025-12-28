@@ -154,12 +154,75 @@ async function fetchWalletDetails(address, retries = 5) {
             validTxCount = Math.max(0, totalStats - spamCount);
         }
 
+        // Calculate Time-Based Stats (24h, 7d, etc) for Instant Frontend
+        function calculateStats(txs) {
+            const now = Date.now();
+            const periods = {
+                '24h': 24 * 60 * 60 * 1000,
+                '3d': 3 * 24 * 60 * 60 * 1000,
+                '7d': 7 * 24 * 60 * 60 * 1000,
+                '30d': 30 * 24 * 60 * 60 * 1000,
+                '90d': 90 * 24 * 60 * 60 * 1000,
+                'all': Infinity
+            };
+
+            const stats = {};
+
+            Object.keys(periods).forEach(key => {
+                let count = 0;
+                let volume = 0n;
+                const cutoff = periods[key] === Infinity ? 0 : now - periods[key];
+
+                txs.forEach(tx => {
+                    const ts = Date.parse(tx.timestamp);
+                    if (ts >= cutoff) {
+                        // Re-use spam/valid logic?
+                        // Frontend logic says: Count = All (in window), Volume = Contract Only
+                        // But we should filter SPAM out first?
+                        // Let's stick to Valid Txs only for Stats.
+
+                        const hasInput = tx.raw_input && tx.raw_input !== '0x';
+                        const isContractInteraction = hasInput || (tx.transaction_types && (tx.transaction_types.includes('contract_call') || tx.transaction_types.includes('token_transfer')));
+                        const val = BigInt(tx.value || "0");
+                        const isError = tx.status === 'error';
+                        // Value threshold: 0.1 IP
+                        const VALUE_THRESHOLD = 100000000000000000n;
+                        const isBelowThreshold = val < VALUE_THRESHOLD;
+                        const isSpam = isError || (isBelowThreshold && !isContractInteraction);
+
+                        if (!isSpam) {
+                            count++;
+                            // Volume strictly tracks Contract Interactions (like Protocol Volume)
+                            if (isContractInteraction) {
+                                volume += val;
+                            }
+                        }
+                    }
+                });
+
+                // Format Volume
+                const volIP = Number(volume) / 1e18;
+                let volStr = "0 IP";
+                if (volIP > 0) {
+                    if (volIP < 0.01) volStr = "<0.01 IP";
+                    else volStr = volIP.toLocaleString(undefined, { maximumFractionDigits: 2 }) + " IP";
+                }
+
+                stats[key] = { count, volume: volStr };
+            });
+            return stats;
+        }
+
+        const timeStats = calculateStats(allTxs);
+
         return {
             balance,
             txCount: validTxCount,
             lastActive,
+            stats: timeStats, // Include Pre-calculated Stats
             success: true
         };
+
 
     } catch (e) {
         if (retries > 0) {
@@ -240,6 +303,9 @@ async function run() {
                 wallet.transaction_count = data.txCount;
                 if (data.lastActive > 0) {
                     wallet.last_active = data.lastActive;
+                }
+                if (data.stats) {
+                    wallet.last_stats = data.stats; // Save stats to JSON
                 }
                 const timeStr = wallet.last_active ? new Date(wallet.last_active).toLocaleString() : "Never";
                 console.log(`[✅ UPDATED] ${wallet.address} | Bal: ${wallet.balance} | Tx: ${wallet.transaction_count} | Last: ${timeStr}`);
