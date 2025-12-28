@@ -301,7 +301,16 @@ async function run() {
     }
 
     const uniqueWallets = Array.from(uniqueMap.values());
-    console.log(`📋 Total Unique Wallets to Scan: ${uniqueWallets.length}`);
+
+    // PRIORITY SORT: Never-scanned first, then oldest-scanned
+    uniqueWallets.sort((a, b) => {
+        const aTs = a.last_scanned_timestamp || 0;
+        const bTs = b.last_scanned_timestamp || 0;
+        return aTs - bTs; // Smallest (0 or oldest) first
+    });
+
+    const neverScanned = uniqueWallets.filter(w => !w.last_scanned_timestamp).length;
+    console.log(`📋 Total Unique Wallets: ${uniqueWallets.length} | Never Scanned: ${neverScanned} (Priority)`);
 
     let processed = 0;
 
