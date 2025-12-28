@@ -5661,9 +5661,9 @@
   {
     "address": "0xc960517deE7a3FC8b1F28481fd82756023D3470D",
     "name": "daniviecmi.ip",
-    "balance": "125.26",
+    "balance": "42.26",
     "tx_count": 411,
-    "last_active": 1766808436000,
+    "last_active": 1766893537000,
     "transaction_count": 491
   },
   {
@@ -7192,7 +7192,7 @@
     "balance": "0.42",
     "tx_count": 770,
     "last_active": 1766876678000,
-    "transaction_count": 820
+    "transaction_count": 822
   },
   {
     "address": "0xAd38Ae28aa9E9d3DC6Aca67689cdcaeDec552891",
@@ -9168,7 +9168,7 @@
     "balance": "0.36",
     "tx_count": 1122,
     "last_active": 1766876621000,
-    "transaction_count": 1201
+    "transaction_count": 1202
   },
   {
     "address": "0x9bA150561c80B8Dd5BbA76491E1aafaeca4f8fc7",
@@ -15744,7 +15744,7 @@
     "balance": "0.64",
     "tx_count": 1,
     "last_active": 1766886998000,
-    "transaction_count": 10
+    "transaction_count": 11
   },
   {
     "address": "0x3B81b1F0397458b20A1cb8F4a7467224D8002c59",
@@ -16543,7 +16543,7 @@
     "name": "rajat.ip",
     "balance": "1.45",
     "tx_count": 384,
-    "last_active": 1766804411000,
+    "last_active": 1766890745000,
     "transaction_count": 572
   },
   {
@@ -16936,7 +16936,7 @@
     "balance": "4.78",
     "tx_count": 0,
     "last_active": 1766881985000,
-    "transaction_count": 50
+    "transaction_count": 51
   },
   {
     "address": "0x268bfE7f1B324297Ecff3F406D5a5cAcBb86A616",
@@ -17432,7 +17432,7 @@
     "balance": "0.10",
     "tx_count": 612,
     "last_active": 1766876627000,
-    "transaction_count": 814
+    "transaction_count": 816
   },
   {
     "address": "0x21E3bed229c51D36b8722aA33973d13f144FdaDc",
@@ -21020,7 +21020,7 @@
     "address": "0xB9cBE4c2f6400118ABdA5f3c79fC2295F625Fa27",
     "name": "sirius.ip",
     "balance": "1.72",
-    "transaction_count": 1443,
+    "transaction_count": 1445,
     "last_active": 1766876704000
   },
   {
@@ -21657,7 +21657,7 @@
     "address": "0xB1328f0596cBBe71c7f3d8b58076F57dA52c7c55",
     "name": "spiritanimal.ip",
     "balance": "6.46",
-    "transaction_count": 72,
+    "transaction_count": 73,
     "last_active": 1766875893000
   },
   {
@@ -21831,7 +21831,7 @@
   {
     "address": "0x9a3d947f3712b967a5bb81b19208ddbAEf3533AE",
     "name": "originstake.ip",
-    "balance": "157.42",
+    "balance": "157.44",
     "transaction_count": 6,
     "last_active": 1741365030000
   },
@@ -25214,7 +25214,7 @@
     "name": "dukmings.ip",
     "balance": "0.61",
     "transaction_count": 1466,
-    "last_active": 1766808714000
+    "last_active": 1766893027000
   },
   {
     "address": "0x2df292AF809Fd693D94C7D17E36BE352e15Bb98a",
@@ -25877,9 +25877,9 @@
   {
     "address": "0x0fc814456Dc73e9BBAC25022b4711DD2bd966EE7",
     "name": "thefool.ip",
-    "balance": "12.13",
+    "balance": "12.12",
     "transaction_count": 2812,
-    "last_active": 1766805037000
+    "last_active": 1766891787000
   },
   {
     "address": "0x0fBAFc0Fb60Ef0614f348d774228634e6Bb087FB",
@@ -26410,7 +26410,7 @@
     "address": "0x08940849b2cbb76981E215786E842CECd46eF447",
     "name": "52hz0whale.ip",
     "balance": "4.72",
-    "transaction_count": 66,
+    "transaction_count": 73,
     "last_active": 1766880763000
   },
   {
@@ -26683,8 +26683,8 @@
     "address": "0x1Ad8F11Db7b452D12a6F886b6eead9F05C71a986",
     "name": "Unknown",
     "balance": "0.10",
-    "transaction_count": 40892,
-    "last_active": 1766885724000
+    "transaction_count": 40916,
+    "last_active": 1766892999000
   },
   {
     "address": "0xE07389421953cd2cf3D2B71519681c204cE325BB",
