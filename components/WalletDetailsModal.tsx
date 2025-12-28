@@ -16,7 +16,7 @@ const formatVol = (wei: bigint) => {
     return val.toLocaleString(undefined, { maximumFractionDigits: 2 }) + " IP";
 };
 
-type TimeWindow = '24h' | '3d' | '7d' | '30d' | '90d' | 'all';
+type TimeWindow = '24h' | '3d' | '7d' | '14d' | '30d' | '90d' | 'all';
 
 const API_BASE = 'https://www.storyscan.io/api/v2';
 
@@ -62,6 +62,7 @@ export function WalletDetailsModal({ isOpen, onClose, address, name, precalculat
             '24h': 24 * 60 * 60 * 1000,
             '3d': 3 * 24 * 60 * 60 * 1000,
             '7d': 7 * 24 * 60 * 60 * 1000,
+            '14d': 14 * 24 * 60 * 60 * 1000,
             '30d': 30 * 24 * 60 * 60 * 1000,
             '90d': 90 * 24 * 60 * 60 * 1000,
             'all': Infinity
@@ -165,7 +166,7 @@ export function WalletDetailsModal({ isOpen, onClose, address, name, precalculat
                 )}
 
                 <div className="flex space-x-2 mb-6 bg-gray-900/50 p-1 rounded-lg">
-                    {(['24h', '3d', '7d', '30d', '90d', 'all'] as const).map((tab) => (
+                    {(['24h', '3d', '7d', '14d', '30d', '90d', 'all'] as const).map((tab) => (
                         <button
                             key={tab}
                             onClick={() => setActiveTab(tab)}
