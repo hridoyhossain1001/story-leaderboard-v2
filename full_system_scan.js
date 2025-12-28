@@ -43,13 +43,14 @@ async function get(url) {
     });
 }
 
-const MAX_PAGES = 20; // Safety limit (1000 txs)
+const MAX_PAGES = 100; // Deep scan limit (5000 txs) for FIRST full scan
 
-async function fetchAllTransactions(address, totalExpected) {
+async function fetchAllTransactions(address, totalExpected, lastScannedTs = 0) {
     let allTxs = [];
     let page = 0;
+    let hitOldTransaction = false;
 
-    // Safety Limit: 50 pages = 50 items * 50 = 2500 Txs max deep scan.
+    // Safety Limit: 100 pages = 50 items * 100 = 5000 Txs max deep scan.
     let url = `${STORY_API_BASE}/addresses/${address}/transactions`;
 
     while (page < MAX_PAGES) {
@@ -57,7 +58,22 @@ async function fetchAllTransactions(address, totalExpected) {
         try {
             const res = await get(url);
             if (res.items && res.items.length > 0) {
-                allTxs = allTxs.concat(res.items);
+
+                // INCREMENTAL LOGIC: Filter out already-scanned transactions
+                for (const tx of res.items) {
+                    const txTs = Date.parse(tx.timestamp);
+                    if (lastScannedTs > 0 && txTs <= lastScannedTs) {
+                        // We've reached transactions we already processed
+                        hitOldTransaction = true;
+                        break;
+                    }
+                    allTxs.push(tx);
+                }
+
+                if (hitOldTransaction) {
+                    console.log(`   ↪ Reached already-scanned transactions at page ${page}`);
+                    break;
+                }
 
                 // If we reached expected count, stop early
                 if (totalExpected > 0 && allTxs.length >= totalExpected) break;
@@ -89,8 +105,12 @@ async function fetchAllTransactions(address, totalExpected) {
     return allTxs;
 }
 
-async function fetchWalletDetails(address, retries = 5) {
+async function fetchWalletDetails(address, existingWalletData = {}, retries = 5) {
     try {
+        // Get existing data for incremental scan
+        const lastScannedTs = existingWalletData.last_scanned_timestamp || 0;
+        const existingSpamCount = existingWalletData.known_spam_count || 0;
+
         // 1. Fetch Counts & Balance
         const [info, counters] = await Promise.all([
             get(`${STORY_API_BASE}/addresses/${address}`),
@@ -104,60 +124,40 @@ async function fetchWalletDetails(address, retries = 5) {
         // Use Counter as Base check
         let totalStats = counters && counters.transactions_count ? parseInt(counters.transactions_count) : 0;
 
-        // 2. Fetch ALL Transactions (Deep Scan with Pagination)
-        const allTxs = await fetchAllTransactions(address, totalStats);
+        // 2. Fetch Transactions (INCREMENTAL: Only NEW ones since last scan)
+        const allTxs = await fetchAllTransactions(address, totalStats, lastScannedTs);
 
-        let validTxCount = 0;
-        let lastActive = 0;
-        let spamCount = 0;
+        let newLastScannedTs = lastScannedTs; // Keep old if no new txs
+        let newSpamCount = 0;
 
         if (allTxs.length > 0) {
-            lastActive = Date.parse(allTxs[0].timestamp);
+            // Update last scanned timestamp to the newest transaction
+            newLastScannedTs = Date.parse(allTxs[0].timestamp);
 
             allTxs.forEach(tx => {
-                const isIncoming = tx.to && tx.to.hash && tx.to.hash.toLowerCase() === address.toLowerCase();
                 const value = BigInt(tx.value || "0");
                 const isError = tx.status === 'error';
 
                 // SPAM LOGIC:
-                // 1. Error Status = Spam
-                // 2. Low Value (< $0.10) AND Not a Contract Interaction = Spam
-                //    (Swaps/Token Transfers are exempt from value check)
-
-                // key checks: has input data OR tx_types includes contract/token stuff
                 const hasInput = tx.raw_input && tx.raw_input !== '0x';
                 const isContractInteraction = hasInput || (tx.transaction_types && (tx.transaction_types.includes('contract_call') || tx.transaction_types.includes('token_transfer')));
-
-                // Value threshold: 0.1 IP = 100000000000000000 Wei (0.1 * 10^18)
                 const VALUE_THRESHOLD = 100000000000000000n; // 0.1 IP
                 const isBelowThreshold = value < VALUE_THRESHOLD;
-
-                // If it's a contract interaction (Swap, NFT mint, etc), we count it as valid (unless error).
-                // Only simple IP transfers need to meet the value threshold.
                 const isSpam = isError || (isBelowThreshold && !isContractInteraction);
 
-                if (!isSpam) {
-                    // It's a valid transaction
-                } else {
-                    spamCount++;
+                if (isSpam) {
+                    newSpamCount++;
                 }
             });
+
+            if (lastScannedTs > 0) {
+                console.log(`   ↪ Incremental: Found ${allTxs.length} new txs, ${newSpamCount} new spam`);
+            }
         }
 
-        // If we fetched "Most" or "All", we trust Valid count = fetched - spam
-        // OR better: Valid = (TotalRaw - Spam). 
-        // We assume un-fetched older history (if any) is valid? 
-        // Current logic fetches MAX 2500. So if >2500, we missed some spam.
-        // But (TotalRaw - Spam) is the best estimate.
-
-        // If we actually fetched everything (fetched >= totalRaw), then Exact Count is (fetched - spam).
-        if (allTxs.length >= totalStats) {
-            validTxCount = allTxs.length - spamCount;
-        } else {
-            // We didn't fetch everything (maybe older history exists beyond page limit).
-            // We subtract found spam from Raw Total.
-            validTxCount = Math.max(0, totalStats - spamCount);
-        }
+        // CUMULATIVE SPAM COUNT
+        const totalSpamCount = existingSpamCount + newSpamCount;
+        const validTxCount = Math.max(0, totalStats - totalSpamCount);
 
         // Calculate Time-Based Stats (24h, 7d, etc) for Instant Frontend
         function calculateStats(txs) {
@@ -221,11 +221,17 @@ async function fetchWalletDetails(address, retries = 5) {
 
         const timeStats = calculateStats(allTxs);
 
+        // lastActive: Use the newest transaction timestamp (or keep existing)
+        const lastActive = newLastScannedTs || existingWalletData.last_active || 0;
+
         return {
             balance,
             txCount: validTxCount,
             lastActive,
-            stats: timeStats, // Include Pre-calculated Stats
+            stats: timeStats,
+            // NEW: Incremental scan data
+            last_scanned_timestamp: newLastScannedTs,
+            known_spam_count: totalSpamCount,
             success: true
         };
 
@@ -234,7 +240,7 @@ async function fetchWalletDetails(address, retries = 5) {
         if (retries > 0) {
             const waitTime = e.message.includes('429') ? 2000 : 1000;
             await sleep(waitTime);
-            return fetchWalletDetails(address, retries - 1);
+            return fetchWalletDetails(address, existingWalletData, retries - 1);
         }
         return { success: false, error: e.message };
     }
@@ -303,7 +309,8 @@ async function run() {
         const chunk = uniqueWallets.slice(i, i + CONCURRENCY);
 
         const promises = chunk.map(async (wallet) => {
-            const data = await fetchWalletDetails(wallet.address);
+            // Pass existing wallet data for INCREMENTAL scanning
+            const data = await fetchWalletDetails(wallet.address, wallet);
             if (data.success) {
                 wallet.balance = data.balance;
                 wallet.transaction_count = data.txCount;
@@ -311,10 +318,17 @@ async function run() {
                     wallet.last_active = data.lastActive;
                 }
                 if (data.stats) {
-                    wallet.last_stats = data.stats; // Save stats to JSON
+                    wallet.last_stats = data.stats;
+                }
+                // NEW: Store incremental scan data
+                if (data.last_scanned_timestamp) {
+                    wallet.last_scanned_timestamp = data.last_scanned_timestamp;
+                }
+                if (data.known_spam_count !== undefined) {
+                    wallet.known_spam_count = data.known_spam_count;
                 }
                 const timeStr = wallet.last_active ? new Date(wallet.last_active).toLocaleString() : "Never";
-                console.log(`[✅ UPDATED] ${wallet.address} | Bal: ${wallet.balance} | Tx: ${wallet.transaction_count} | Last: ${timeStr}`);
+                console.log(`[✅ UPDATED] ${wallet.address} | Bal: ${wallet.balance} | Tx: ${wallet.transaction_count} | Spam: ${wallet.known_spam_count || 0} | Last: ${timeStr}`);
             } else {
                 console.log(`❌ Failed: ${wallet.address} | Error: ${data.error}`);
             }
