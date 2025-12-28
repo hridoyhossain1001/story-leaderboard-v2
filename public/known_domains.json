@@ -1,45 +1,5 @@
 [
   {
-    "address": "0x231B405c333DB6D81ADEAadF4c6FF3940Ea5dB21",
-    "name": "wecryptotogether.ip",
-    "balance": "0.30",
-    "tx_count": 110,
-    "last_active": 1766847609000,
-    "transaction_count": 118,
-    "last_stats": {
-      "24h": {
-        "count": 0,
-        "volume": "0 IP"
-      },
-      "3d": {
-        "count": 4,
-        "volume": "0 IP"
-      },
-      "7d": {
-        "count": 4,
-        "volume": "0 IP"
-      },
-      "14d": {
-        "count": 4,
-        "volume": "0 IP"
-      },
-      "30d": {
-        "count": 4,
-        "volume": "0 IP"
-      },
-      "90d": {
-        "count": 10,
-        "volume": "1,680 IP"
-      },
-      "all": {
-        "count": 118,
-        "volume": "10,303.1 IP"
-      }
-    },
-    "known_spam_count": 6,
-    "last_scanned_timestamp": 1766847609000
-  },
-  {
     "address": "0x9F76949f23C560fe81094De53813a9D77aB4819a",
     "name": "Unknown",
     "balance": "0.00",
@@ -17935,8 +17895,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 4,
-        "volume": "0.82 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1740971289000,
@@ -17975,8 +17935,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 4,
-        "volume": "0.82 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1740971734000,
@@ -18014,8 +17974,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 4,
-        "volume": "4.29 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1740984057000,
@@ -18054,8 +18014,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 2,
-        "volume": "0.79 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1740985801000,
@@ -18094,8 +18054,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 9,
-        "volume": "5.15 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1740987212000,
@@ -18133,8 +18093,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 4,
-        "volume": "1.77 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1740992430000,
@@ -18172,8 +18132,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 12,
-        "volume": "0.99 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1740992491000,
@@ -18212,8 +18172,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 2,
-        "volume": "0.75 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1740996937000,
@@ -18252,8 +18212,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 10,
-        "volume": "33.05 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1740998691000,
@@ -18291,8 +18251,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 3,
-        "volume": "0.79 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1741002202000,
@@ -18371,8 +18331,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 7,
-        "volume": "19.24 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1741004879000,
@@ -18410,8 +18370,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 5,
-        "volume": "1.35 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1741006471000,
@@ -18449,8 +18409,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 10,
-        "volume": "8.98 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1741012532000,
@@ -18488,8 +18448,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 4,
-        "volume": "2.82 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1741013329000,
@@ -18527,8 +18487,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 7,
-        "volume": "0.93 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1741013812000,
@@ -18567,8 +18527,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 3,
-        "volume": "0.87 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1741015260000,
@@ -18646,8 +18606,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 4,
-        "volume": "0.84 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1741031411000,
@@ -18685,8 +18645,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 1,
-        "volume": "0.89 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1741034485000,
@@ -18724,8 +18684,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 8,
-        "volume": "0.83 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1741039447000,
@@ -18764,8 +18724,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 4,
-        "volume": "1.7 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1741041878000,
@@ -18803,8 +18763,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 4,
-        "volume": "0.92 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1741045173000,
@@ -18882,8 +18842,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 9,
-        "volume": "32.61 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1741046893000,
@@ -18921,8 +18881,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 2,
-        "volume": "1.94 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1741050500000,
@@ -18961,8 +18921,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 2,
-        "volume": "1.91 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1741053730000,
@@ -19001,8 +18961,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 6,
-        "volume": "52.75 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1741066339000,
@@ -22976,7 +22936,7 @@
   {
     "address": "0x9a3d947f3712b967a5bb81b19208ddbAEf3533AE",
     "name": "originstake.ip",
-    "balance": "157.84",
+    "balance": "157.85",
     "transaction_count": 5,
     "last_active": 1741365030000,
     "last_stats": {
@@ -23690,7 +23650,7 @@
   {
     "address": "0xE08c0aEa2DA99b668E8121f4d922Ef8A2E3B8a10",
     "name": "spidernode.ip",
-    "balance": "69.50",
+    "balance": "69.51",
     "transaction_count": 5,
     "last_active": 1741458876000,
     "last_stats": {
@@ -26179,8 +26139,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 2,
-        "volume": "0.9 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1741886490000,
@@ -26298,8 +26258,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 1,
-        "volume": "0.87 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1741936906000,
@@ -26377,8 +26337,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 3,
-        "volume": "1 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1741937745000,
@@ -26497,8 +26457,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 3,
-        "volume": "1 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1741937904000,
@@ -27131,8 +27091,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 33,
-        "volume": "262.93 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1742027771000,
@@ -34510,8 +34470,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 5,
-        "volume": "1.11 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1743586524000,
@@ -34589,8 +34549,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 6,
-        "volume": "54.58 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1743625166000,
@@ -34708,8 +34668,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 55,
-        "volume": "2,505.52 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1743673593000,
@@ -34748,8 +34708,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 5,
-        "volume": "11.93 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1743674902000,
@@ -34787,8 +34747,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 10,
-        "volume": "8.61 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1743681686000,
@@ -34946,8 +34906,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 40,
-        "volume": "106.87 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1743693260000,
@@ -34986,8 +34946,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 85,
-        "volume": "166.69 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1743708295000,
@@ -35026,8 +34986,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 9,
-        "volume": "1.99 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1743752104000,
@@ -35146,8 +35106,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 21,
-        "volume": "148.06 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1743816363000,
@@ -35226,8 +35186,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 14,
-        "volume": "6.99 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1743847799000,
@@ -35266,8 +35226,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 12,
-        "volume": "5.3 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1743848990000,
@@ -35346,8 +35306,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 4,
-        "volume": "0.98 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1743884955000,
@@ -35386,8 +35346,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 4,
-        "volume": "0.98 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1743884958000,
@@ -35426,8 +35386,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 4,
-        "volume": "0.98 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1743884960000,
@@ -35465,8 +35425,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 4,
-        "volume": "0.98 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1743884960000,
@@ -35505,8 +35465,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 4,
-        "volume": "0.98 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1743885054000,
@@ -35545,8 +35505,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 4,
-        "volume": "1 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1743885138000,
@@ -35584,8 +35544,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 4,
-        "volume": "0.99 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1743885143000,
@@ -35624,8 +35584,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 4,
-        "volume": "0.99 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1743885232000,
@@ -35664,8 +35624,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 4,
-        "volume": "0.99 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1743885353000,
@@ -42978,8 +42938,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 23,
-        "volume": "6.08 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1746268854000,
@@ -43417,8 +43377,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 117,
-        "volume": "91.3 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1746533399000,
@@ -43536,8 +43496,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 13,
-        "volume": "226.91 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1746594414000,
@@ -43616,8 +43576,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 6,
-        "volume": "3.84 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1746610802000,
@@ -43656,8 +43616,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 5,
-        "volume": "2.46 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1746635031000,
@@ -43696,8 +43656,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 25,
-        "volume": "223.21 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1746639666000,
@@ -43776,8 +43736,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 18,
-        "volume": "2.68 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1746654026000,
@@ -43816,8 +43776,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 46,
-        "volume": "475.64 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1746675881000,
@@ -43895,8 +43855,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 4,
-        "volume": "102.34 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1746691276000,
@@ -43935,8 +43895,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 7,
-        "volume": "2.25 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1746745727000,
@@ -43974,8 +43934,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 6,
-        "volume": "20.58 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1746756880000,
@@ -44013,8 +43973,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 20,
-        "volume": "26.44 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1746797405000,
@@ -51285,8 +51245,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 39,
-        "volume": "1.88 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1749572568000,
@@ -51325,8 +51285,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 168,
-        "volume": "1.5 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1749579995000,
@@ -51404,8 +51364,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 13,
-        "volume": "65.08 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1749594072000,
@@ -51484,8 +51444,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 46,
-        "volume": "97.85 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1749609033000,
@@ -51523,8 +51483,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 21,
-        "volume": "236.67 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1749639556000,
@@ -51643,8 +51603,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 26,
-        "volume": "15.55 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1749734671000,
@@ -51682,8 +51642,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 19,
-        "volume": "2.61 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1749741814000,
@@ -51722,8 +51682,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 28,
-        "volume": "35.98 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1749794948000,
@@ -51761,8 +51721,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 10,
-        "volume": "9.06 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1749806117000,
@@ -51801,8 +51761,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 15,
-        "volume": "2,002.34 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1749812112000,
@@ -51880,7 +51840,7 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 3,
+        "count": 0,
         "volume": "0 IP"
       }
     },
@@ -51919,8 +51879,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 76,
-        "volume": "18.58 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1749956330000,
@@ -51959,8 +51919,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 7,
-        "volume": "2.28 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1749970338000,
@@ -52039,8 +51999,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 41,
-        "volume": "1,138.51 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1750032233000,
@@ -52079,8 +52039,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 10,
-        "volume": "1.12 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1750046637000,
@@ -52119,8 +52079,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 19,
-        "volume": "83.26 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1750058488000,
@@ -52277,8 +52237,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 15,
-        "volume": "25.32 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1750175634000,
@@ -52317,8 +52277,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 231,
-        "volume": "298.94 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1750198059000,
@@ -52356,8 +52316,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 3,
-        "volume": "0.76 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1750223899000,
@@ -59621,8 +59581,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 3,
-        "volume": "1.88 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1753374126000,
@@ -59661,8 +59621,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 3,
-        "volume": "1.87 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1753374144000,
@@ -59898,8 +59858,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 15,
-        "volume": "126.87 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1753381903000,
@@ -60056,8 +60016,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 83,
-        "volume": "133.16 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1753453393000,
@@ -60095,8 +60055,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 42,
-        "volume": "23.44 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1753468455000,
@@ -60175,8 +60135,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 31,
-        "volume": "4.61 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1753477235000,
@@ -60255,8 +60215,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 6,
-        "volume": "2.29 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1753509678000,
@@ -60412,8 +60372,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 13,
-        "volume": "2.67 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1753554120000,
@@ -60491,8 +60451,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 6,
-        "volume": "2.07 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1753677429000,
@@ -60569,8 +60529,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 15,
-        "volume": "3.7 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1753692306000,
@@ -60608,8 +60568,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 5,
-        "volume": "2.1 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1753695806000,
@@ -60647,8 +60607,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 29,
-        "volume": "158.14 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1753706756000,
@@ -68023,8 +67983,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 373,
-        "volume": "236.33 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1755696934000,
@@ -68815,8 +68775,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 7,
-        "volume": "2.04 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1755937936000,
@@ -68893,8 +68853,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 352,
-        "volume": "5.1 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1755942425000,
@@ -68971,8 +68931,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 317,
-        "volume": "5.19 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1755943033000,
@@ -76266,8 +76226,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 69,
-        "volume": "18.17 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1757432189000,
@@ -76306,8 +76266,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 531,
-        "volume": "1,189.27 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1757434890000,
@@ -76386,8 +76346,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 211,
-        "volume": "1,498.31 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1757438409000,
@@ -76584,8 +76544,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 24,
-        "volume": "24.71 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1757441716000,
@@ -76623,8 +76583,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 7,
-        "volume": "1.57 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1757448652000,
@@ -76703,8 +76663,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 111,
-        "volume": "12.52 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1757452857000,
@@ -76743,8 +76703,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 14,
-        "volume": "6.3 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1757455666000,
@@ -76823,8 +76783,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 2,
-        "volume": "0.99 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1757458363000,
@@ -76863,8 +76823,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 32,
-        "volume": "111.64 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1757459811000,
@@ -76903,8 +76863,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 27,
-        "volume": "343.26 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1757461448000,
@@ -76943,8 +76903,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 4,
-        "volume": "1.02 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1757468428000,
@@ -76983,8 +76943,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 210,
-        "volume": "5.74 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1757483306000,
@@ -77063,8 +77023,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 45,
-        "volume": "137.49 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1757489899000,
@@ -77102,8 +77062,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 8,
-        "volume": "5.58 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1757490435000,
@@ -77142,8 +77102,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 3,
-        "volume": "3.02 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1757490897000,
@@ -77182,8 +77142,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 38,
-        "volume": "2,049.41 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1757493975000,
@@ -77262,8 +77222,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 17,
-        "volume": "47.24 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1757497813000,
@@ -77302,8 +77262,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 6,
-        "volume": "0.91 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1757500493000,
@@ -77342,8 +77302,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 188,
-        "volume": "1,292.72 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1757504135000,
@@ -84720,8 +84680,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 23,
-        "volume": "1.78 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1758485524000,
@@ -84839,8 +84799,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 9,
-        "volume": "1.85 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1758490212000,
@@ -85037,8 +84997,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 32,
-        "volume": "12.75 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1758522892000,
@@ -85116,8 +85076,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 14,
-        "volume": "2.9 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1758532353000,
@@ -85155,8 +85115,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 35,
-        "volume": "287.87 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1758532974000,
@@ -85275,8 +85235,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 12,
-        "volume": "3.05 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1758534405000,
@@ -85552,8 +85512,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 31,
-        "volume": "102.99 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1758555882000,
@@ -85632,8 +85592,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 7,
-        "volume": "1.97 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1758556921000,
@@ -85672,8 +85632,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 8,
-        "volume": "5.83 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1758559384000,
@@ -92890,12 +92850,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 1,
-        "volume": "0.21 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 3,
-        "volume": "1.32 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1760000209000,
@@ -92930,12 +92890,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 3,
-        "volume": "0.4 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 12,
-        "volume": "5.72 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1760003205000,
@@ -92970,12 +92930,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 8,
-        "volume": "1.49 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 17,
-        "volume": "3.56 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1760004466000,
@@ -93010,12 +92970,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 1,
-        "volume": "0.36 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 3,
-        "volume": "1.47 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1760006523000,
@@ -93088,12 +93048,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 1,
-        "volume": "0.21 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 3,
-        "volume": "1.27 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1760009982000,
@@ -93128,12 +93088,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 1,
-        "volume": "0.17 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 3,
-        "volume": "1.22 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1760010807000,
@@ -93248,12 +93208,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 10,
-        "volume": "4.72 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 28,
-        "volume": "7.17 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1760043249000,
@@ -93327,12 +93287,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 1,
-        "volume": "1.1 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 23,
-        "volume": "5.02 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1760061107000,
@@ -93367,12 +93327,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 2,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 15,
-        "volume": "1,476.31 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1760084938000,
@@ -93485,12 +93445,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 1,
-        "volume": "0.03 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 5,
-        "volume": "2.67 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1760122583000,
@@ -93525,12 +93485,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 3,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 84,
-        "volume": "1,948.41 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1760123030000,
@@ -93564,12 +93524,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 36,
-        "volume": "80.1 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 284,
-        "volume": "948.54 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1760138396000,
@@ -93643,12 +93603,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 7,
-        "volume": "5.07 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 43,
-        "volume": "238.12 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1760147771000,
@@ -93683,12 +93643,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 2,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 114,
-        "volume": "293.23 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1760165423000,
@@ -93763,12 +93723,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 5,
-        "volume": "23.92 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 41,
-        "volume": "246.53 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1760178632000,
@@ -93802,12 +93762,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 3,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 20,
-        "volume": "213.02 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1760236210000,
@@ -93842,12 +93802,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 8,
-        "volume": "14.53 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 65,
-        "volume": "66.82 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1760370066000,
@@ -93881,12 +93841,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 12,
-        "volume": "38.5 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 349,
-        "volume": "1,244.15 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1760376254000,
@@ -93925,8 +93885,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 44,
-        "volume": "8.9 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1760378159000,
@@ -94001,12 +93961,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 1,
-        "volume": "1.17 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 22,
-        "volume": "13.4 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1760455307000,
@@ -101573,12 +101533,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 5,
-        "volume": "12 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 10,
-        "volume": "14.03 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762499765000,
@@ -101653,12 +101613,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 2,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 57,
-        "volume": "336.06 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762499788000,
@@ -101851,12 +101811,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 2,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 24,
-        "volume": "8.83 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762499912000,
@@ -102048,12 +102008,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 6,
-        "volume": "0.03 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 72,
-        "volume": "1,002.56 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762499972000,
@@ -102246,12 +102206,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 2,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 42,
-        "volume": "202.61 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762500165000,
@@ -102570,46 +102530,6 @@
       }
     },
     "last_scanned_timestamp": 1762500291000,
-    "known_spam_count": 4
-  },
-  {
-    "address": "0x4C6AfE2Ea0f28195F9f604cE793a5A7DABc56D39",
-    "name": "yogibhai.ip",
-    "balance": "0.33",
-    "tx_count": 9,
-    "last_active": 1766951914000,
-    "transaction_count": 139,
-    "last_stats": {
-      "24h": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "3d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "7d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "14d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "30d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "90d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "all": {
-        "count": 2,
-        "volume": "0 IP"
-      }
-    },
-    "last_scanned_timestamp": 1766951914000,
     "known_spam_count": 4
   },
   {
@@ -109581,12 +109501,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 4,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 47,
-        "volume": "159.91 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762517955000,
@@ -109621,12 +109541,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 4,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 146,
-        "volume": "1,450.8 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762517982000,
@@ -109699,12 +109619,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 2,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 30,
-        "volume": "347.13 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762518193000,
@@ -109818,12 +109738,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 4,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 106,
-        "volume": "10.21 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762518654000,
@@ -109857,12 +109777,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 5,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 115,
-        "volume": "12,143.88 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762518879000,
@@ -109897,12 +109817,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 5,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 36,
-        "volume": "414.65 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762519093000,
@@ -109937,12 +109857,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 9,
-        "volume": "0.01 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 40,
-        "volume": "2,926.74 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762519510000,
@@ -109977,12 +109897,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 2,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 10,
-        "volume": "102.22 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762519563000,
@@ -110056,12 +109976,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 2,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 11,
-        "volume": "122.87 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762519911000,
@@ -110096,12 +110016,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 2,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 75,
-        "volume": "125.31 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762520191000,
@@ -110216,12 +110136,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 2,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 65,
-        "volume": "1,579.36 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762520772000,
@@ -110256,12 +110176,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 2,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 37,
-        "volume": "805.55 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762521168000,
@@ -110295,12 +110215,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 5,
-        "volume": "0.03 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 59,
-        "volume": "135.89 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762522117000,
@@ -110334,12 +110254,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 2,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 27,
-        "volume": "58.05 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762522160000,
@@ -110374,12 +110294,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 5,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 10,
-        "volume": "0.89 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762522645000,
@@ -110414,12 +110334,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 5,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 22,
-        "volume": "42.89 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762522676000,
@@ -110533,12 +110453,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 5,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 17,
-        "volume": "20.91 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762522948000,
@@ -110572,12 +110492,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 6,
-        "volume": "1.05 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762523048000,
@@ -110651,12 +110571,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 6,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 28,
-        "volume": "2.01 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762523334000,
@@ -111096,46 +111016,6 @@
       }
     },
     "last_scanned_timestamp": 1762526033000,
-    "known_spam_count": 0
-  },
-  {
-    "address": "0xFe0a22a63989d7F61d09427365A35c50EE23b4b7",
-    "name": "alexeidenisov.ip",
-    "balance": "9.40",
-    "tx_count": 4,
-    "last_active": 1766951357000,
-    "transaction_count": 9,
-    "last_stats": {
-      "24h": {
-        "count": 1,
-        "volume": "0 IP"
-      },
-      "3d": {
-        "count": 1,
-        "volume": "0 IP"
-      },
-      "7d": {
-        "count": 1,
-        "volume": "0 IP"
-      },
-      "14d": {
-        "count": 1,
-        "volume": "0 IP"
-      },
-      "30d": {
-        "count": 1,
-        "volume": "0 IP"
-      },
-      "90d": {
-        "count": 1,
-        "volume": "0 IP"
-      },
-      "all": {
-        "count": 1,
-        "volume": "0 IP"
-      }
-    },
-    "last_scanned_timestamp": 1766951357000,
     "known_spam_count": 0
   },
   {
@@ -117983,12 +117863,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 6,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 15,
-        "volume": "23.82 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762888559000,
@@ -118102,12 +117982,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 2,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 9,
-        "volume": "2.06 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762922465000,
@@ -118300,12 +118180,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 5,
-        "volume": "6.9 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 23,
-        "volume": "11.58 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762946816000,
@@ -118340,12 +118220,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 2,
-        "volume": "<0.01 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 107,
-        "volume": "5.5 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762954374000,
@@ -118420,12 +118300,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 2,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 15,
-        "volume": "19.83 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1762976014000,
@@ -118539,12 +118419,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 6,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 86,
-        "volume": "150.86 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1763004143000,
@@ -118697,12 +118577,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 11,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 54,
-        "volume": "132.55 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1763029771000,
@@ -118737,12 +118617,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 3,
-        "volume": "0.29 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 10,
-        "volume": "2.47 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1763051444000,
@@ -118817,12 +118697,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 12,
-        "volume": "1 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 95,
-        "volume": "104.08 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1763067353000,
@@ -118974,12 +118854,12 @@
         "volume": "0 IP"
       },
       "90d": {
-        "count": 2,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 10,
-        "volume": "93.25 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1763110586000,
@@ -126284,16 +126164,16 @@
         "volume": "0 IP"
       },
       "30d": {
-        "count": 1,
-        "volume": "0.04 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "90d": {
-        "count": 1,
-        "volume": "0.04 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 27,
-        "volume": "117.19 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1765444881000,
@@ -126403,16 +126283,16 @@
         "volume": "0 IP"
       },
       "30d": {
-        "count": 2,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 59,
-        "volume": "34.57 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 482,
-        "volume": "1,049.78 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1765459819000,
@@ -126520,16 +126400,16 @@
         "volume": "0 IP"
       },
       "30d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 15,
-        "volume": "10 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 28,
-        "volume": "10 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1765541203000,
@@ -126600,16 +126480,16 @@
         "volume": "0 IP"
       },
       "30d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 28,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 194,
-        "volume": "4.91 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1765547094000,
@@ -126719,16 +126599,16 @@
         "volume": "0 IP"
       },
       "30d": {
-        "count": 14,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 18,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 97,
-        "volume": "372.23 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1765550719000,
@@ -126759,16 +126639,16 @@
         "volume": "0 IP"
       },
       "30d": {
-        "count": 13,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 17,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 831,
-        "volume": "3,332.2 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1765552959000,
@@ -126879,16 +126759,16 @@
         "volume": "0 IP"
       },
       "30d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 4,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 93,
-        "volume": "17.42 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1765569059000,
@@ -126919,16 +126799,16 @@
         "volume": "0 IP"
       },
       "30d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 23,
-        "volume": "130.39 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1765574704000,
@@ -126959,16 +126839,16 @@
         "volume": "0 IP"
       },
       "30d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 78,
-        "volume": "98.84 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1765606974000,
@@ -126998,16 +126878,16 @@
         "volume": "0 IP"
       },
       "30d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 18,
-        "volume": "377.42 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1765621646000,
@@ -127045,8 +126925,8 @@
         "volume": "0 IP"
       },
       "all": {
-        "count": 22,
-        "volume": "7.45 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1765627442000,
@@ -127077,16 +126957,16 @@
         "volume": "0 IP"
       },
       "30d": {
-        "count": 7,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 17,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 98,
-        "volume": "310.15 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1765627661000,
@@ -127116,16 +126996,16 @@
         "volume": "0 IP"
       },
       "30d": {
-        "count": 2,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 49,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 110,
-        "volume": "95.92 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1765630873000,
@@ -127156,16 +127036,16 @@
         "volume": "0 IP"
       },
       "30d": {
-        "count": 5,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 5,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 28,
-        "volume": "66.62 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1765632013000,
@@ -127196,16 +127076,16 @@
         "volume": "0 IP"
       },
       "30d": {
-        "count": 2,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 10,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 225,
-        "volume": "152.29 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1765638548000,
@@ -127236,16 +127116,16 @@
         "volume": "0 IP"
       },
       "30d": {
-        "count": 12,
-        "volume": "30.04 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "90d": {
-        "count": 13,
-        "volume": "30.04 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 61,
-        "volume": "203.58 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1765659491000,
@@ -127276,16 +127156,16 @@
         "volume": "0 IP"
       },
       "30d": {
-        "count": 2,
-        "volume": "0.81 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "90d": {
-        "count": 7,
-        "volume": "0.81 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 73,
-        "volume": "397.95 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1765731979000,
@@ -127311,20 +127191,20 @@
         "volume": "0 IP"
       },
       "14d": {
-        "count": 2,
+        "count": 0,
         "volume": "0 IP"
       },
       "30d": {
-        "count": 2,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 6,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 34,
-        "volume": "365.02 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1765747808000,
@@ -128679,7 +128559,7 @@
   {
     "address": "0x749fEE22929ffb4d9BE21fBeEF05ED076A94e68F",
     "name": "viktor.ip",
-    "balance": "9.38",
+    "balance": "17.38",
     "transaction_count": 421,
     "last_active": 1766256790000,
     "last_stats": {
@@ -130222,46 +130102,6 @@
     },
     "last_scanned_timestamp": 1766422493000,
     "known_spam_count": 1
-  },
-  {
-    "address": "0xC1fd4cd1858c6BD7eFa96f239E04cC46dA84A69C",
-    "name": "dsadstory.ip",
-    "balance": "0.02",
-    "tx_count": 1243,
-    "last_active": 1766949987000,
-    "transaction_count": 1270,
-    "last_stats": {
-      "24h": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "3d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "7d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "14d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "30d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "90d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "all": {
-        "count": 2,
-        "volume": "0 IP"
-      }
-    },
-    "last_scanned_timestamp": 1766949987000,
-    "known_spam_count": 21
   },
   {
     "address": "0x2Bc7AD20C59ED537175Bb1CC2151F8576CA1430a",
@@ -134636,24 +134476,24 @@
         "volume": "0 IP"
       },
       "7d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "30d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 8,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 70,
-        "volume": "3,369.54 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1766480250000,
@@ -134715,24 +134555,24 @@
         "volume": "0 IP"
       },
       "7d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "30d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 19,
-        "volume": "160.81 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1766483230000,
@@ -134913,24 +134753,24 @@
         "volume": "0 IP"
       },
       "7d": {
-        "count": 2,
+        "count": 0,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 5,
-        "volume": "8.2 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "30d": {
-        "count": 26,
-        "volume": "28.6 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "90d": {
-        "count": 65,
-        "volume": "124.01 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 128,
-        "volume": "216.48 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1766486989000,
@@ -134992,24 +134832,24 @@
         "volume": "0 IP"
       },
       "7d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "30d": {
-        "count": 9,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 27,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 68,
-        "volume": "107.23 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1766487494000,
@@ -135071,24 +134911,24 @@
         "volume": "0 IP"
       },
       "7d": {
-        "count": 3,
+        "count": 0,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 4,
-        "volume": "0.25 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "30d": {
-        "count": 23,
-        "volume": "67.33 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "90d": {
-        "count": 257,
-        "volume": "79.27 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 606,
-        "volume": "222.06 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1766489229000,
@@ -135229,24 +135069,24 @@
         "volume": "0 IP"
       },
       "7d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 3,
+        "count": 0,
         "volume": "0 IP"
       },
       "30d": {
-        "count": 3,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 15,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 84,
-        "volume": "92.85 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1766489986000,
@@ -135309,24 +135149,24 @@
         "volume": "0 IP"
       },
       "7d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "30d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 5,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 42,
-        "volume": "1,673.67 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1766490097000,
@@ -135389,24 +135229,24 @@
         "volume": "0 IP"
       },
       "7d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "30d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 125,
-        "volume": "398.57 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1766493847000,
@@ -135468,24 +135308,24 @@
         "volume": "0 IP"
       },
       "7d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "30d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 7,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 77,
-        "volume": "169.55 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1766495535000,
@@ -135508,24 +135348,24 @@
         "volume": "0 IP"
       },
       "7d": {
-        "count": 5,
-        "volume": "0.05 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "14d": {
-        "count": 5,
-        "volume": "0.05 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "30d": {
-        "count": 7,
-        "volume": "7.66 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "90d": {
-        "count": 45,
-        "volume": "2,097.59 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 335,
-        "volume": "8,488.66 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1766495774000,
@@ -135548,24 +135388,24 @@
         "volume": "0 IP"
       },
       "7d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "30d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 13,
-        "volume": "0.3 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 15,
-        "volume": "1.75 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1766496815000,
@@ -141171,6 +141011,46 @@
     "known_spam_count": 3
   },
   {
+    "address": "0x231B405c333DB6D81ADEAadF4c6FF3940Ea5dB21",
+    "name": "wecryptotogether.ip",
+    "balance": "0.30",
+    "tx_count": 110,
+    "last_active": 1766847609000,
+    "transaction_count": 118,
+    "last_stats": {
+      "24h": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "3d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "7d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "14d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "30d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "90d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "all": {
+        "count": 0,
+        "volume": "0 IP"
+      }
+    },
+    "known_spam_count": 6,
+    "last_scanned_timestamp": 1766847609000
+  },
+  {
     "address": "0x2A982eB8a29F6d521AC10946a505408a954b90f3",
     "name": "alli777.ip",
     "balance": "22.27",
@@ -141688,46 +141568,6 @@
     "known_spam_count": 0
   },
   {
-    "address": "0x7956500014D3059C199E0Ae58eA9Deb3f4b308d3",
-    "name": "nesle.ip",
-    "balance": "0.42",
-    "tx_count": 0,
-    "last_active": 1766950737000,
-    "transaction_count": 194,
-    "last_stats": {
-      "24h": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "3d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "7d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "14d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "30d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "90d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "all": {
-        "count": 2,
-        "volume": "0 IP"
-      }
-    },
-    "last_scanned_timestamp": 1766950737000,
-    "known_spam_count": 3
-  },
-  {
     "address": "0x34bf35D5ED1D2fBF402973bBe6441f3Dd721687b",
     "name": "ncsoft.ip",
     "balance": "0.52",
@@ -142005,45 +141845,6 @@
       }
     },
     "last_scanned_timestamp": 1766865904000,
-    "known_spam_count": 0
-  },
-  {
-    "address": "0x0b2D869D3E38D63f15392CD2b6ACCe7071991F53",
-    "name": "amazonindia.ip",
-    "balance": "97.74",
-    "transaction_count": 510,
-    "last_active": 1766948683000,
-    "last_stats": {
-      "24h": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "3d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "7d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "14d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "30d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "90d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "all": {
-        "count": 2,
-        "volume": "0 IP"
-      }
-    },
-    "last_scanned_timestamp": 1766948683000,
     "known_spam_count": 0
   },
   {
@@ -142441,45 +142242,6 @@
     },
     "last_scanned_timestamp": 1766876678000,
     "known_spam_count": 0
-  },
-  {
-    "address": "0xB9cBE4c2f6400118ABdA5f3c79fC2295F625Fa27",
-    "name": "sirius.ip",
-    "balance": "1.72",
-    "transaction_count": 1443,
-    "last_active": 1766952507000,
-    "last_stats": {
-      "24h": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "3d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "7d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "14d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "30d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "90d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "all": {
-        "count": 2,
-        "volume": "0 IP"
-      }
-    },
-    "last_scanned_timestamp": 1766952507000,
-    "known_spam_count": 2
   },
   {
     "address": "0x268EF519eDBf507Ed9fF31a3EaE96c82cBE1bb0b",
@@ -143046,32 +142808,32 @@
     "transaction_count": 684,
     "last_stats": {
       "24h": {
-        "count": 2,
-        "volume": "0.02 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "3d": {
-        "count": 4,
-        "volume": "0.03 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "7d": {
-        "count": 9,
-        "volume": "0.16 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "14d": {
-        "count": 18,
-        "volume": "0.25 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "30d": {
-        "count": 35,
-        "volume": "0.48 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "90d": {
-        "count": 134,
-        "volume": "1.27 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 684,
-        "volume": "16,099.92 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1766910638000,
@@ -143125,32 +142887,32 @@
     "last_active": 1766912265000,
     "last_stats": {
       "24h": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "3d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "7d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "30d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 45,
-        "volume": "0.01 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 454,
-        "volume": "8.07 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1766912265000,
@@ -143164,32 +142926,32 @@
     "last_active": 1766913206000,
     "last_stats": {
       "24h": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "3d": {
-        "count": 3,
+        "count": 0,
         "volume": "0 IP"
       },
       "7d": {
-        "count": 7,
+        "count": 0,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 14,
+        "count": 0,
         "volume": "0 IP"
       },
       "30d": {
-        "count": 28,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 80,
-        "volume": "30.12 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 121,
-        "volume": "78.85 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1766913206000,
@@ -143204,32 +142966,32 @@
     "transaction_count": 2153,
     "last_stats": {
       "24h": {
-        "count": 11,
+        "count": 0,
         "volume": "0 IP"
       },
       "3d": {
-        "count": 32,
+        "count": 0,
         "volume": "0 IP"
       },
       "7d": {
-        "count": 69,
+        "count": 0,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 136,
+        "count": 0,
         "volume": "0 IP"
       },
       "30d": {
-        "count": 224,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 406,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 2153,
-        "volume": "1,396.06 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1766913651000,
@@ -143243,32 +143005,32 @@
     "last_active": 1766915403000,
     "last_stats": {
       "24h": {
-        "count": 3,
+        "count": 0,
         "volume": "0 IP"
       },
       "3d": {
-        "count": 6,
+        "count": 0,
         "volume": "0 IP"
       },
       "7d": {
-        "count": 9,
+        "count": 0,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 20,
+        "count": 0,
         "volume": "0 IP"
       },
       "30d": {
-        "count": 38,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 170,
-        "volume": "2.65 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 812,
-        "volume": "473.19 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1766915403000,
@@ -143362,32 +143124,32 @@
     "last_active": 1766916320000,
     "last_stats": {
       "24h": {
-        "count": 31,
-        "volume": "38.5 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "3d": {
-        "count": 46,
-        "volume": "58.46 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "7d": {
-        "count": 85,
-        "volume": "112.87 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "14d": {
-        "count": 85,
-        "volume": "112.87 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "30d": {
-        "count": 111,
-        "volume": "171.88 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "90d": {
-        "count": 839,
-        "volume": "659.87 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 1107,
-        "volume": "1,148.27 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1766916320000,
@@ -143520,32 +143282,32 @@
     "transaction_count": 1562,
     "last_stats": {
       "24h": {
-        "count": 2,
+        "count": 0,
         "volume": "0 IP"
       },
       "3d": {
-        "count": 6,
+        "count": 0,
         "volume": "0 IP"
       },
       "7d": {
-        "count": 14,
+        "count": 0,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 16,
+        "count": 0,
         "volume": "0 IP"
       },
       "30d": {
-        "count": 50,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 168,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 1562,
-        "volume": "843.92 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1766919197000,
@@ -143678,32 +143440,32 @@
     "last_active": 1766924718000,
     "last_stats": {
       "24h": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "3d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "7d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "30d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 8,
-        "volume": "0.71 IP"
+        "count": 0,
+        "volume": "0 IP"
       },
       "all": {
-        "count": 28,
-        "volume": "50.13 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1766924718000,
@@ -143758,32 +143520,32 @@
     "transaction_count": 30,
     "last_stats": {
       "24h": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "3d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "7d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "30d": {
-        "count": 1,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 3,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 30,
-        "volume": "234.41 IP"
+        "count": 0,
+        "volume": "0 IP"
       }
     },
     "last_scanned_timestamp": 1766926370000,
@@ -143874,79 +143636,39 @@
     "name": "soltys.ip",
     "balance": "0.09",
     "transaction_count": 4809,
-    "last_active": 1766930582000,
+    "last_active": 1766954957000,
     "last_stats": {
       "24h": {
-        "count": 0,
-        "volume": "0 IP"
+        "count": 3,
+        "volume": "<0.01 IP"
       },
       "3d": {
-        "count": 0,
-        "volume": "0 IP"
+        "count": 3,
+        "volume": "<0.01 IP"
       },
       "7d": {
-        "count": 0,
-        "volume": "0 IP"
+        "count": 3,
+        "volume": "<0.01 IP"
       },
       "14d": {
-        "count": 0,
-        "volume": "0 IP"
+        "count": 3,
+        "volume": "<0.01 IP"
       },
       "30d": {
-        "count": 0,
-        "volume": "0 IP"
+        "count": 3,
+        "volume": "<0.01 IP"
       },
       "90d": {
-        "count": 0,
-        "volume": "0 IP"
+        "count": 3,
+        "volume": "<0.01 IP"
       },
       "all": {
-        "count": 0,
-        "volume": "0 IP"
+        "count": 3,
+        "volume": "<0.01 IP"
       }
     },
-    "last_scanned_timestamp": 1766930582000,
+    "last_scanned_timestamp": 1766954957000,
     "known_spam_count": 11
-  },
-  {
-    "address": "0xF65Ad1fe683c8019b84711D4a885e0f0c58560Ce",
-    "name": "benji.ip",
-    "balance": "5.02",
-    "tx_count": 170,
-    "last_active": 1766949990000,
-    "transaction_count": 309,
-    "last_stats": {
-      "24h": {
-        "count": 0,
-        "volume": "0 IP"
-      },
-      "3d": {
-        "count": 0,
-        "volume": "0 IP"
-      },
-      "7d": {
-        "count": 0,
-        "volume": "0 IP"
-      },
-      "14d": {
-        "count": 0,
-        "volume": "0 IP"
-      },
-      "30d": {
-        "count": 0,
-        "volume": "0 IP"
-      },
-      "90d": {
-        "count": 0,
-        "volume": "0 IP"
-      },
-      "all": {
-        "count": 0,
-        "volume": "0 IP"
-      }
-    },
-    "last_scanned_timestamp": 1766949990000,
-    "known_spam_count": 236
   },
   {
     "address": "0xaeFA0F6cD031F4e5a3E88C61602d7AF1b9E0919D",
@@ -144748,7 +144470,7 @@
     "balance": "9.12",
     "tx_count": 228,
     "last_active": 1766945012000,
-    "transaction_count": 301,
+    "transaction_count": 305,
     "last_stats": {
       "24h": {
         "count": 0,
@@ -144781,45 +144503,6 @@
     },
     "last_scanned_timestamp": 1766945012000,
     "known_spam_count": 12
-  },
-  {
-    "address": "0x1Ad8F11Db7b452D12a6F886b6eead9F05C71a986",
-    "name": "Unknown",
-    "balance": "0.10",
-    "transaction_count": 41052,
-    "last_active": 1766951199000,
-    "last_stats": {
-      "24h": {
-        "count": 8,
-        "volume": "0 IP"
-      },
-      "3d": {
-        "count": 8,
-        "volume": "0 IP"
-      },
-      "7d": {
-        "count": 8,
-        "volume": "0 IP"
-      },
-      "14d": {
-        "count": 8,
-        "volume": "0 IP"
-      },
-      "30d": {
-        "count": 8,
-        "volume": "0 IP"
-      },
-      "90d": {
-        "count": 8,
-        "volume": "0 IP"
-      },
-      "all": {
-        "count": 8,
-        "volume": "0 IP"
-      }
-    },
-    "last_scanned_timestamp": 1766951199000,
-    "known_spam_count": 0
   },
   {
     "address": "0x08940849b2cbb76981E215786E842CECd46eF447",
@@ -144859,5 +144542,322 @@
     },
     "last_scanned_timestamp": 1766948123000,
     "known_spam_count": 8
+  },
+  {
+    "address": "0x0b2D869D3E38D63f15392CD2b6ACCe7071991F53",
+    "name": "amazonindia.ip",
+    "balance": "97.74",
+    "transaction_count": 512,
+    "last_active": 1766948683000,
+    "last_stats": {
+      "24h": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "3d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "7d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "14d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "30d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "90d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "all": {
+        "count": 0,
+        "volume": "0 IP"
+      }
+    },
+    "last_scanned_timestamp": 1766948683000,
+    "known_spam_count": 0
+  },
+  {
+    "address": "0xC1fd4cd1858c6BD7eFa96f239E04cC46dA84A69C",
+    "name": "dsadstory.ip",
+    "balance": "0.02",
+    "tx_count": 1243,
+    "last_active": 1766949987000,
+    "transaction_count": 1272,
+    "last_stats": {
+      "24h": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "3d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "7d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "14d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "30d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "90d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "all": {
+        "count": 0,
+        "volume": "0 IP"
+      }
+    },
+    "last_scanned_timestamp": 1766949987000,
+    "known_spam_count": 21
+  },
+  {
+    "address": "0xF65Ad1fe683c8019b84711D4a885e0f0c58560Ce",
+    "name": "benji.ip",
+    "balance": "5.02",
+    "tx_count": 170,
+    "last_active": 1766949990000,
+    "transaction_count": 310,
+    "last_stats": {
+      "24h": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "3d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "7d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "14d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "30d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "90d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "all": {
+        "count": 0,
+        "volume": "0 IP"
+      }
+    },
+    "last_scanned_timestamp": 1766949990000,
+    "known_spam_count": 236
+  },
+  {
+    "address": "0x7956500014D3059C199E0Ae58eA9Deb3f4b308d3",
+    "name": "nesle.ip",
+    "balance": "0.42",
+    "tx_count": 0,
+    "last_active": 1766950737000,
+    "transaction_count": 196,
+    "last_stats": {
+      "24h": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "3d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "7d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "14d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "30d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "90d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "all": {
+        "count": 0,
+        "volume": "0 IP"
+      }
+    },
+    "last_scanned_timestamp": 1766950737000,
+    "known_spam_count": 3
+  },
+  {
+    "address": "0x1Ad8F11Db7b452D12a6F886b6eead9F05C71a986",
+    "name": "Unknown",
+    "balance": "0.10",
+    "transaction_count": 41060,
+    "last_active": 1766958470000,
+    "last_stats": {
+      "24h": {
+        "count": 16,
+        "volume": "0 IP"
+      },
+      "3d": {
+        "count": 16,
+        "volume": "0 IP"
+      },
+      "7d": {
+        "count": 16,
+        "volume": "0 IP"
+      },
+      "14d": {
+        "count": 16,
+        "volume": "0 IP"
+      },
+      "30d": {
+        "count": 16,
+        "volume": "0 IP"
+      },
+      "90d": {
+        "count": 16,
+        "volume": "0 IP"
+      },
+      "all": {
+        "count": 16,
+        "volume": "0 IP"
+      }
+    },
+    "last_scanned_timestamp": 1766958470000,
+    "known_spam_count": 0
+  },
+  {
+    "address": "0xFe0a22a63989d7F61d09427365A35c50EE23b4b7",
+    "name": "alexeidenisov.ip",
+    "balance": "9.40",
+    "tx_count": 4,
+    "last_active": 1766951357000,
+    "transaction_count": 10,
+    "last_stats": {
+      "24h": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "3d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "7d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "14d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "30d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "90d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "all": {
+        "count": 0,
+        "volume": "0 IP"
+      }
+    },
+    "last_scanned_timestamp": 1766951357000,
+    "known_spam_count": 0
+  },
+  {
+    "address": "0x4C6AfE2Ea0f28195F9f604cE793a5A7DABc56D39",
+    "name": "yogibhai.ip",
+    "balance": "0.33",
+    "tx_count": 9,
+    "last_active": 1766951914000,
+    "transaction_count": 141,
+    "last_stats": {
+      "24h": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "3d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "7d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "14d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "30d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "90d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "all": {
+        "count": 0,
+        "volume": "0 IP"
+      }
+    },
+    "last_scanned_timestamp": 1766951914000,
+    "known_spam_count": 4
+  },
+  {
+    "address": "0xB9cBE4c2f6400118ABdA5f3c79fC2295F625Fa27",
+    "name": "sirius.ip",
+    "balance": "1.72",
+    "transaction_count": 1445,
+    "last_active": 1766952507000,
+    "last_stats": {
+      "24h": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "3d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "7d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "14d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "30d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "90d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "all": {
+        "count": 0,
+        "volume": "0 IP"
+      }
+    },
+    "last_scanned_timestamp": 1766952507000,
+    "known_spam_count": 2
   }
 ]
