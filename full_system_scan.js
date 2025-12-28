@@ -116,8 +116,8 @@ async function fetchWalletDetails(address, retries = 5) {
 
                 // SPAM LOGIC:
                 // 1. Error Status = Spam
-                // 2. Value 0 AND Not a Contract Interaction (Swap/Token Transfer) = Spam
-                // 3. Value < $0.10 (0.1 IP) = Spam
+                // 2. Low Value (< $0.10) AND Not a Contract Interaction = Spam
+                //    (Swaps/Token Transfers are exempt from value check)
 
                 // key checks: has input data OR tx_types includes contract/token stuff
                 const hasInput = tx.raw_input && tx.raw_input !== '0x';
@@ -127,7 +127,9 @@ async function fetchWalletDetails(address, retries = 5) {
                 const VALUE_THRESHOLD = 100000000000000000n; // 0.1 IP
                 const isBelowThreshold = value < VALUE_THRESHOLD;
 
-                const isSpam = isError || (value === 0n && !isContractInteraction) || isBelowThreshold;
+                // If it's a contract interaction (Swap, NFT mint, etc), we count it as valid (unless error).
+                // Only simple IP transfers need to meet the value threshold.
+                const isSpam = isError || (isBelowThreshold && !isContractInteraction);
 
                 if (!isSpam) {
                     // It's a valid transaction

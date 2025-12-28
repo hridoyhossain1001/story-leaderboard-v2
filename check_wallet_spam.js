@@ -3,7 +3,7 @@ const https = require('https');
 
 const API_KEY = 'MhBsxkU1z9fG6TofE59KqiiWV-YlYE8Q4awlLQehF3U';
 const STORY_API_BASE = 'https://www.storyscan.io/api/v2';
-const ADDRESS = '0x4Ec04c2ca8ef0061170d9EB5589aA09a80ce0Fff';
+const ADDRESS = '0x19FFDa63B0fbaa3a51e68c894e97ba0C152003d6';
 
 async function get(url) {
     return new Promise((resolve, reject) => {
@@ -40,38 +40,21 @@ async function check() {
 
         let allTxs = [];
         let fetched = 0;
-        let nextParams = null; // If V2 uses cursor
         let url = `${STORY_API_BASE}/addresses/${ADDRESS}/transactions`;
-
-        // Naive Pagination Loop (Check if V2 supports standard blockscout pagination)
-        // Since we don't have explicit doc, we attempt to fetch using ?next_page_params if returned, 
-        // or we simply confirm the first 100 stats.
-        // User asked for "Full Check" -> implies checking if >100 exists.
-
-        // Let's modify logic to fetch ALL
         let page = 0;
 
-        while (fetched < totalRaw && page < 50) { // Max 5000 txs safety
+        while (fetched < totalRaw && page < 50) {
             console.log(`  > Fetching Page ${page + 1}...`);
-            // NOTE: V2 pagination usually requires specific params from previous response.
-            // If we don't handle next_page_params, we just get first page repeatedly.
-            // Let's assume for this single test we check the first 100 which covers 300+ of this user?
-
-            // Wait, the previous test showed 327 Total TX.
-            // We need to fetch 4 pages.
-            // V2 API Standard: ?block_number=...&index=... from `next_page_params`.
-
             const res = await get(url);
             if (res.items && res.items.length > 0) {
                 allTxs = allTxs.concat(res.items);
                 fetched += res.items.length;
 
                 if (res.next_page_params) {
-                    // Construct next URL
                     const params = new URLSearchParams(res.next_page_params).toString();
                     url = `${STORY_API_BASE}/addresses/${ADDRESS}/transactions?${params}`;
                 } else {
-                    break; // No more pages
+                    break;
                 }
             } else {
                 break;
@@ -90,8 +73,7 @@ async function check() {
 
             // REFINED SPAM DEFINITION:
             // 1. Error Status = Spam
-            // 2. Value 0 AND Not a Contract Interaction (Swap/Token Transfer) = Spam
-            // 3. Value < $0.10 (0.1 IP) = Spam
+            // 2. Low Value (< $0.10) AND Not a Contract Interaction = Spam
 
             const hasInput = tx.raw_input && tx.raw_input !== '0x';
             const isContractInteraction = hasInput || (tx.transaction_types && (tx.transaction_types.includes('contract_call') || tx.transaction_types.includes('token_transfer')));
@@ -99,17 +81,14 @@ async function check() {
             const VALUE_THRESHOLD = 100000000000000000n; // 0.1 IP
             const isBelowThreshold = value < VALUE_THRESHOLD;
 
-            if (isError || (value === 0n && !isContractInteraction) || isBelowThreshold) {
+            // Only flag as spam if Error OR (Low Value AND No Interaction)
+            if (isError || (isBelowThreshold && !isContractInteraction)) {
                 spamCount++;
                 if (spamTxHashes.length < 10) {
                     const valueInIP = Number(value) / 1e18;
                     let reason = "Error";
                     if (!isError) {
-                        if (value === 0n && !isContractInteraction) {
-                            reason = "0 Value & No Interaction";
-                        } else if (isBelowThreshold) {
-                            reason = `Low Value ($${(valueInIP * 1.58).toFixed(4)})`;
-                        }
+                        reason = `Low Value ($${(valueInIP * 1.58).toFixed(4)}) & No Interaction`;
                     }
                     spamTxHashes.push({
                         hash: tx.hash,
@@ -122,7 +101,6 @@ async function check() {
         });
 
         let validTx = Math.max(0, totalRaw - spamCount);
-        // If we fetched everything, trust our manual count more than raw counter
         if (allTxs.length >= totalRaw) {
             validTx = allTxs.length - spamCount;
         }
