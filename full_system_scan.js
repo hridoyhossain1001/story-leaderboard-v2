@@ -114,7 +114,11 @@ async function fetchWalletDetails(address, retries = 5) {
                 const value = BigInt(tx.value || "0");
                 const isError = tx.status === 'error';
 
-                const isSpam = (isIncoming && value === 0n) || isError;
+                // SPAM LOGIC:
+                // 1. Incoming & 0 Value = Spam
+                // 2. Outgoing & 0 Value (Swap/Contract Call) = Spam (As per user request)
+                // 3. Error Status = Spam
+                const isSpam = (value === 0n) || isError;
 
                 if (!isSpam) {
                     // It's a valid transaction
