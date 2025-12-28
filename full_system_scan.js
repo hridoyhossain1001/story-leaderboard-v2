@@ -5,19 +5,25 @@ const https = require('https');
 const FILE = path.join(__dirname, 'public', 'known_domains.json');
 const STORY_API_BASE = 'https://www.storyscan.io/api/v2';
 
+// Mainnet Public Key (300 req/s limit)
+const API_KEY = 'MhBsxkU1z9fG6TofE59KqiiWV-YlYE8Q4awlLQehF3U';
+
 // OPTIMIZED SETTINGS
-// STRICT SAFE MODE
-const CONCURRENCY = 2; // Scanning 2 wallets at a time (OPTIMAL)
+const CONCURRENCY = 10; // Increased Speed (Supported by Key)
 const LIST_FILE = 'Story.txt';
 
 async function get(url) {
     return new Promise((resolve, reject) => {
         const req = https.get(url, {
-            headers: { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json' },
+            headers: {
+                'User-Agent': 'Mozilla/5.0',
+                'Accept': 'application/json',
+                'X-API-Key': API_KEY // Authenticated Request
+            },
             timeout: 10000
         }, (res) => {
             if (res.statusCode === 429) {
-                return reject(new Error(`429`)); // Rate Limit
+                return reject(new Error(`429`));
             }
             if (res.statusCode < 200 || res.statusCode > 299) {
                 return reject(new Error(`HTTP ${res.statusCode}`));
@@ -37,30 +43,112 @@ async function get(url) {
     });
 }
 
+const MAX_PAGES = 20; // Safety limit (1000 txs)
+
+async function fetchAllTransactions(address, totalExpected) {
+    let allTxs = [];
+    let page = 0;
+
+    // Safety Limit: 50 pages = 50 items * 50 = 2500 Txs max deep scan.
+    let url = `${STORY_API_BASE}/addresses/${address}/transactions`;
+
+    while (page < MAX_PAGES) {
+
+        try {
+            const res = await get(url);
+            if (res.items && res.items.length > 0) {
+                allTxs = allTxs.concat(res.items);
+
+                // If we reached expected count, stop early
+                if (totalExpected > 0 && allTxs.length >= totalExpected) break;
+
+                // Pagination Logic
+                if (res.next_page_params) {
+                    const params = new URLSearchParams(res.next_page_params).toString();
+                    url = `${STORY_API_BASE}/addresses/${address}/transactions?${params}`;
+                } else {
+                    break;
+                }
+            } else {
+                break;
+            }
+            page++;
+            // Small delay to be gentle even with Key
+            if (page % 5 === 0) await sleep(200);
+
+        } catch (e) {
+            console.log(`⚠️ Pagination Error at page ${page}: ${e.message}`);
+            break;
+        }
+    }
+    return allTxs;
+}
+
 async function fetchWalletDetails(address, retries = 5) {
     try {
-        const [info, counters, txs] = await Promise.all([
+        // 1. Fetch Counts & Balance
+        const [info, counters] = await Promise.all([
             get(`${STORY_API_BASE}/addresses/${address}`),
             get(`${STORY_API_BASE}/addresses/${address}/counters`),
-            get(`${STORY_API_BASE}/addresses/${address}/transactions`)
         ]);
 
         let balance = "0.00";
         if (info && info.coin_balance) balance = (Number(BigInt(info.coin_balance)) / 1e18).toFixed(2);
-
-        let txCount = 0;
-        if (counters && counters.transactions_count) txCount = parseInt(counters.transactions_count);
-
         if (parseFloat(balance) > 100000000) balance = "0.00";
 
-        let lastActive = 0;
-        if (txs && txs.items && txs.items.length > 0) lastActive = Date.parse(txs.items[0].timestamp);
+        // Use Counter as Base check
+        let totalStats = counters && counters.transactions_count ? parseInt(counters.transactions_count) : 0;
 
-        return { balance, txCount, lastActive, success: true };
+        // 2. Fetch ALL Transactions (Deep Scan with Pagination)
+        const allTxs = await fetchAllTransactions(address, totalStats);
+
+        let validTxCount = 0;
+        let lastActive = 0;
+        let spamCount = 0;
+
+        if (allTxs.length > 0) {
+            lastActive = Date.parse(allTxs[0].timestamp);
+
+            allTxs.forEach(tx => {
+                const isIncoming = tx.to && tx.to.hash && tx.to.hash.toLowerCase() === address.toLowerCase();
+                const value = BigInt(tx.value || "0");
+                const isError = tx.status === 'error';
+
+                const isSpam = (isIncoming && value === 0n) || isError;
+
+                if (!isSpam) {
+                    // It's a valid transaction
+                } else {
+                    spamCount++;
+                }
+            });
+        }
+
+        // If we fetched "Most" or "All", we trust Valid count = fetched - spam
+        // OR better: Valid = (TotalRaw - Spam). 
+        // We assume un-fetched older history (if any) is valid? 
+        // Current logic fetches MAX 2500. So if >2500, we missed some spam.
+        // But (TotalRaw - Spam) is the best estimate.
+
+        // If we actually fetched everything (fetched >= totalRaw), then Exact Count is (fetched - spam).
+        if (allTxs.length >= totalStats) {
+            validTxCount = allTxs.length - spamCount;
+        } else {
+            // We didn't fetch everything (maybe older history exists beyond page limit).
+            // We subtract found spam from Raw Total.
+            validTxCount = Math.max(0, totalStats - spamCount);
+        }
+
+        return {
+            balance,
+            txCount: validTxCount,
+            lastActive,
+            success: true
+        };
+
     } catch (e) {
         if (retries > 0) {
-            const waitTime = e.message.includes('429') ? 10000 : 3000; // Wait 10s for Rate Limit, 3s for others
-            console.log(`⚠️ Rate Limit (429) hit for ${address}... Waiting ${waitTime / 1000}s... (Retries left: ${retries})`);
+            const waitTime = e.message.includes('429') ? 2000 : 1000;
             await sleep(waitTime);
             return fetchWalletDetails(address, retries - 1);
         }
@@ -139,7 +227,7 @@ async function run() {
                     wallet.last_active = data.lastActive;
                 }
                 const timeStr = wallet.last_active ? new Date(wallet.last_active).toLocaleString() : "Never";
-                console.log(`[✅ UPDATED] ${wallet.address} | Balance: ${wallet.balance} | PM Txs: ${wallet.transaction_count} | Last Active: ${timeStr}`);
+                console.log(`[✅ UPDATED] ${wallet.address} | Bal: ${wallet.balance} | Tx: ${wallet.transaction_count} | Last: ${timeStr}`);
             } else {
                 console.log(`❌ Failed: ${wallet.address} | Error: ${data.error}`);
             }
