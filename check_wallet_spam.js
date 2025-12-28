@@ -3,7 +3,7 @@ const https = require('https');
 
 const API_KEY = 'MhBsxkU1z9fG6TofE59KqiiWV-YlYE8Q4awlLQehF3U';
 const STORY_API_BASE = 'https://www.storyscan.io/api/v2';
-const ADDRESS = '0x19FFDa63B0fbaa3a51e68c894e97ba0C152003d6';
+const ADDRESS = '0x1A8d8Baed2161e145686d20e579775C8ca032216';
 
 async function get(url) {
     return new Promise((resolve, reject) => {

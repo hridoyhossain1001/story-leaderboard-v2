@@ -2,8 +2,8 @@ name: Live Data Update
 
 on:
   schedule:
-    - cron: '0 */2 * * *' # Run every 2 hours (12 times a day)
-  workflow_dispatch: # Allow manual trigger
+    - cron: '0 */2 * * *' # Every 2 hours
+  workflow_dispatch:
 
 permissions:
   contents: write

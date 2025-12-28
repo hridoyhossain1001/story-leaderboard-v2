@@ -43,7 +43,7 @@ async function get(url) {
     });
 }
 
-const MAX_PAGES = 100; // Deep scan limit (5000 txs) for FIRST full scan
+const MAX_PAGES = 60; // 3000 txs per wallet
 
 async function fetchAllTransactions(address, totalExpected, lastScannedTs = 0) {
     let allTxs = [];
