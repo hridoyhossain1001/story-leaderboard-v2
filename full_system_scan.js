@@ -9,7 +9,7 @@ const STORY_API_BASE = 'https://www.storyscan.io/api/v2';
 const API_KEY = 'MhBsxkU1z9fG6TofE59KqiiWV-YlYE8Q4awlLQehF3U';
 
 // OPTIMIZED SETTINGS
-const CONCURRENCY = 40; // High Speed (Supported by 300req/s Key)
+const CONCURRENCY = 5; // Reduced from 40 to Avoid 429 Errors
 const LIST_FILE = 'Story.txt';
 
 async function get(url) {
@@ -74,9 +74,14 @@ async function fetchAllTransactions(address, totalExpected) {
             }
             page++;
             // Small delay to be gentle even with Key
-            if (page % 5 === 0) await sleep(200);
+            if (page % 5 === 0) await new Promise(r => setTimeout(r, 200));
 
         } catch (e) {
+            if (e.message.includes('429')) {
+                console.log(`⚠️ Rate Limit (429) at page ${page}. Retrying...`);
+                await new Promise(r => setTimeout(r, 2000));
+                continue; // Retry same URL
+            }
             console.log(`⚠️ Pagination Error at page ${page}: ${e.message}`);
             break;
         }
