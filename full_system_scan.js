@@ -9,7 +9,7 @@ const STORY_API_BASE = 'https://www.storyscan.io/api/v2';
 const API_KEY = 'MhBsxkU1z9fG6TofE59KqiiWV-YlYE8Q4awlLQehF3U';
 
 // OPTIMIZED SETTINGS
-const CONCURRENCY =  10 // Increased to 20 as per user request (Retry logic handles 4
+const CONCURRENCY = 10; // Increased concurrency
 const LIST_FILE = 'Story.txt';
 
 async function get(url) {
@@ -138,12 +138,20 @@ async function fetchWalletDetails(address, existingWalletData = {}, retries = 5)
                 const value = BigInt(tx.value || "0");
                 const isError = tx.status === 'error';
 
-                // SPAM LOGIC:
+                // SPAM LOGIC REFINED:
                 const hasInput = tx.raw_input && tx.raw_input !== '0x';
-                const isContractInteraction = hasInput || (tx.transaction_types && (tx.transaction_types.includes('contract_call') || tx.transaction_types.includes('token_transfer')));
-                const VALUE_THRESHOLD = 100000000000000000n; // 0.1 IP
-                const isBelowThreshold = value < VALUE_THRESHOLD;
-                const isSpam = isError || (isBelowThreshold && !isContractInteraction);
+                const typeStr = (tx.transaction_types || []).join(',');
+                const isContractCall = typeStr.includes('contract_call') || hasInput;
+                const isTokenTransfer = typeStr.includes('token_transfer');
+
+                // Value Threshold $0.10 USD (~0.063 IP)
+                // 1 IP = 1e18 wei; 0.063 IP = 63000000000000000 wei
+                const VALUE_THRESHOLD = 63000000000000000n;
+                const isHighValue = value >= VALUE_THRESHOLD;
+
+                // VALID if: NOT Error AND (High Value OR Contract/Token Interaction)
+                // SPAM if: Error OR (Low Value AND No Contract/Token Interaction)
+                const isSpam = isError || (!isHighValue && !isContractCall && !isTokenTransfer);
 
                 if (isSpam) {
                     newSpamCount++;
@@ -188,18 +196,21 @@ async function fetchWalletDetails(address, existingWalletData = {}, retries = 5)
                         // Let's stick to Valid Txs only for Stats.
 
                         const hasInput = tx.raw_input && tx.raw_input !== '0x';
-                        const isContractInteraction = hasInput || (tx.transaction_types && (tx.transaction_types.includes('contract_call') || tx.transaction_types.includes('token_transfer')));
+                        const typeStr = (tx.transaction_types || []).join(',');
+                        const isContractCall = typeStr.includes('contract_call') || hasInput;
+                        const isTokenTransfer = typeStr.includes('token_transfer');
+
                         const val = BigInt(tx.value || "0");
-                        const isError = tx.status === 'error';
-                        // Value threshold: 0.1 IP
-                        const VALUE_THRESHOLD = 100000000000000000n;
-                        const isBelowThreshold = val < VALUE_THRESHOLD;
-                        const isSpam = isError || (isBelowThreshold && !isContractInteraction);
+                        const isHighValue = val >= 63000000000000000n; // $0.10 USD
+                        const isSpam = tx.status === 'error' || (!isHighValue && !isContractCall && !isTokenTransfer);
 
                         if (!isSpam) {
                             count++;
-                            // Volume strictly tracks Contract Interactions (like Protocol Volume)
-                            if (isContractInteraction) {
+                            // Volume: Track Native IP Volume for all valid txs (or keep strictly contract?)
+                            // User asked to check "marked value" - assume sum of transfers? 
+                            // For STATS, let's keep it simple: Add native value.
+                            // If token volume needed, we'd parse. For now, native volume + count is key.
+                            if (isContractCall || isTokenTransfer || isHighValue) {
                                 volume += val;
                             }
                         }
