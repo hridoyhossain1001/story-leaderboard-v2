@@ -130,7 +130,14 @@ export function WalletDetailsModal({ isOpen, onClose, address, name, precalculat
                     allTxs.push(tx);
                 }
 
+                // PROGRESSIVE UPDATE: Show data immediately
+                setTransactions([...allTxs]);
+                setLoading(false);
+
                 totalFetched += items.length;
+
+                // Small breathing room for UI
+                await new Promise(r => setTimeout(r, 10));
 
                 if (data.next_page_params) {
                     // Flatten it specifically for URLSearchParams
