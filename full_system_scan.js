@@ -9,7 +9,7 @@ const STORY_API_BASE = 'https://www.storyscan.io/api/v2';
 const API_KEY = 'MhBsxkU1z9fG6TofE59KqiiWV-YlYE8Q4awlLQehF3U';
 
 // OPTIMIZED SETTINGS
-const CONCURRENCY = 50; // Increased concurrency
+const CONCURRENCY = 100; // Increased concurrency
 const LIST_FILE = 'Story.txt';
 
 async function get(url) {
@@ -43,7 +43,7 @@ async function get(url) {
     });
 }
 
-const MAX_PAGES = 60; // 3000 txs per wallet
+const MAX_PAGES = 100; // 3000 txs per wallet
 
 async function fetchAllTransactions(address, totalExpected, lastScannedTs = 0) {
     let allTxs = [];
@@ -90,7 +90,7 @@ async function fetchAllTransactions(address, totalExpected, lastScannedTs = 0) {
             }
             page++;
             // Small delay to be gentle even with Key
-            if (page % 5 === 0) await new Promise(r => setTimeout(r, 200));
+            if (page % 5 === 0) await new Promise(r => setTimeout(r, 50));
 
         } catch (e) {
             if (e.message.includes('429')) {
@@ -363,7 +363,7 @@ async function run() {
         }
 
         // Fast sleep
-        await sleep(200);
+        await sleep(100);
     }
 
     fs.writeFileSync(FILE, JSON.stringify(uniqueWallets, null, 2));
