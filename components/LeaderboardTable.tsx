@@ -185,7 +185,23 @@ export function LeaderboardTable() {
                             {filteredData.length === 0 && (
                                 <tr>
                                     <td colSpan={6} className="p-12 text-center text-gray-500">
-                                        {historicalData ? "No matching domains found." : "Loading initial scan data..."}
+                                        {searchTerm.startsWith('0x') && searchTerm.length === 42 ? (
+                                            <div className="flex flex-col items-center gap-4">
+                                                <p>Address not found in leaderboard.</p>
+                                                <button
+                                                    onClick={() => setSelectedWallet({ name: 'Unknown Address', address: searchTerm })}
+                                                    className="flex items-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-all shadow-lg hover:shadow-purple-500/25"
+                                                >
+                                                    <Activity className="w-5 h-5" />
+                                                    Inspect Live Data
+                                                </button>
+                                                <p className="text-xs text-gray-600 mt-2">
+                                                    Click to fetch live Balance & Transactions from the blockchain.
+                                                </p>
+                                            </div>
+                                        ) : (
+                                            historicalData ? "No matching domains found." : "Loading initial scan data..."
+                                        )}
                                     </td>
                                 </tr>
                             )}
