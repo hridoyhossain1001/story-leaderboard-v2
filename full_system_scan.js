@@ -9,7 +9,7 @@ const STORY_API_BASE = 'https://www.storyscan.io/api/v2';
 const API_KEY = 'MhBsxkU1z9fG6TofE59KqiiWV-YlYE8Q4awlLQehF3U';
 
 // OPTIMIZED SETTINGS
-const CONCURRENCY =  20 // Increased to 20 as per user request (Retry logic handles 4
+const CONCURRENCY =  10 // Increased to 20 as per user request (Retry logic handles 4
 const LIST_FILE = 'Story.txt';
 
 async function get(url) {
@@ -352,7 +352,7 @@ async function run() {
         }
 
         // Fast sleep
-        await sleep(200);
+        await sleep(500);
     }
 
     fs.writeFileSync(FILE, JSON.stringify(uniqueWallets, null, 2));
