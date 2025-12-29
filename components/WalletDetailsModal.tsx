@@ -105,9 +105,13 @@ export function WalletDetailsModal({ isOpen, onClose, address, name, precalculat
             let keepFetching = true;
             let totalFetched = 0;
 
-            // Fetch up to 2000 txs or 90 days, largely sufficient for client-side filtering
+            // Fetch up to 2000 txs or 90 days
             while (keepFetching && totalFetched < 2000) {
-                const url = `${API_BASE}/addresses/${addr}/transactions?${nextPageParams}`;
+                // Ensure items_count=50 is always included
+                const params = new URLSearchParams(nextPageParams);
+                params.set('items_count', '50');
+
+                const url = `${API_BASE}/addresses/${addr}/transactions?${params.toString()}`;
                 const res = await fetch(url);
                 if (!res.ok) throw new Error('Failed to fetch history');
 
@@ -118,20 +122,20 @@ export function WalletDetailsModal({ isOpen, onClose, address, name, precalculat
 
                 for (const tx of items) {
                     const txDate = new Date(tx.timestamp);
-                    const diff = now.getTime() - txDate.getTime();
-
-                    // Optimization: stop pulling if we are way past the max window we care about (unless 'all' is strictly needed)
-                    // But 'all' requests might want everything. For now, 2000 tx limit is the safety valve.
+                    // Optimization: stop pulling if we are way past 90d (safety check)
+                    if (now.getTime() - txDate.getTime() > ms90d && activeTab !== 'all') {
+                        // We might want to break here physically if we trust the API order
+                        // But for safety, we just collect them.
+                    }
                     allTxs.push(tx);
                 }
 
                 totalFetched += items.length;
 
-                if (data.next_page_params && typeof data.next_page_params === 'object') {
-                    nextPageParams = new URLSearchParams(data.next_page_params).toString();
-                } else if (data.next_page_params && typeof data.next_page_params === 'string') {
-                    // Sometimes blockscout returns a raw query string
-                    nextPageParams = data.next_page_params;
+                if (data.next_page_params) {
+                    // Flatten it specifically for URLSearchParams
+                    const next = new URLSearchParams(data.next_page_params);
+                    nextPageParams = next.toString();
                 } else {
                     keepFetching = false;
                 }
