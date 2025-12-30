@@ -9,7 +9,7 @@ const STORY_API_BASE = 'https://www.storyscan.io/api/v2';
 const API_KEY = 'MhBsxkU1z9fG6TofE59KqiiWV-YlYE8Q4awlLQehF3U';
 
 // OPTIMIZED SETTINGS
-const CONCURRENCY = 100; // Increased concurrency
+const CONCURRENCY = 50; // Increased concurrency
 const LIST_FILE = 'Story.txt';
 
 async function get(url) {
