@@ -21367,7 +21367,7 @@
   {
     "address": "0x9a3d947f3712b967a5bb81b19208ddbAEf3533AE",
     "name": "Unknown",
-    "balance": "162.51",
+    "balance": "162.52",
     "transaction_count": 5,
     "last_active": 1741365030000,
     "last_stats": {
@@ -22070,7 +22070,7 @@
   {
     "address": "0xE08c0aEa2DA99b668E8121f4d922Ef8A2E3B8a10",
     "name": "Unknown",
-    "balance": "71.63",
+    "balance": "71.64",
     "transaction_count": 5,
     "last_active": 1741458876000,
     "last_stats": {
@@ -138403,38 +138403,38 @@
     "name": "Unknown",
     "balance": "0.10",
     "transaction_count": 311,
-    "last_active": 1767756505000,
+    "last_active": 1768095819000,
     "last_stats": {
       "24h": {
-        "count": 0,
+        "count": 1,
         "volume": "0 IP"
       },
       "3d": {
-        "count": 0,
+        "count": 1,
         "volume": "0 IP"
       },
       "7d": {
-        "count": 0,
+        "count": 1,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 0,
+        "count": 1,
         "volume": "0 IP"
       },
       "30d": {
-        "count": 0,
+        "count": 1,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 0,
+        "count": 1,
         "volume": "0 IP"
       },
       "all": {
-        "count": 0,
+        "count": 1,
         "volume": "0 IP"
       }
     },
-    "last_scanned_timestamp": 1767756505000,
+    "last_scanned_timestamp": 1768095819000,
     "known_spam_count": 1
   },
   {
@@ -140207,45 +140207,6 @@
     "known_spam_count": 0
   },
   {
-    "address": "0xDb819f7b4F275babBd19BCEDe38829d69143f660",
-    "name": "Unknown",
-    "balance": "0.53",
-    "transaction_count": 619,
-    "last_active": 1768079615000,
-    "last_stats": {
-      "24h": {
-        "count": 3,
-        "volume": "0 IP"
-      },
-      "3d": {
-        "count": 3,
-        "volume": "0 IP"
-      },
-      "7d": {
-        "count": 3,
-        "volume": "0 IP"
-      },
-      "14d": {
-        "count": 3,
-        "volume": "0 IP"
-      },
-      "30d": {
-        "count": 3,
-        "volume": "0 IP"
-      },
-      "90d": {
-        "count": 3,
-        "volume": "0 IP"
-      },
-      "all": {
-        "count": 3,
-        "volume": "0 IP"
-      }
-    },
-    "last_scanned_timestamp": 1768079615000,
-    "known_spam_count": 0
-  },
-  {
     "address": "0x42D98fee300818FaA8228DC5c8168E24549F0060",
     "name": "Unknown",
     "balance": "0.44",
@@ -140289,39 +140250,39 @@
     "name": "rainerft.ip",
     "balance": "0.01",
     "tx_count": 3258,
-    "last_active": 1767961909000,
+    "last_active": 1768086957000,
     "transaction_count": 3274,
     "last_stats": {
       "24h": {
-        "count": 0,
+        "count": 3,
         "volume": "0 IP"
       },
       "3d": {
-        "count": 0,
+        "count": 3,
         "volume": "0 IP"
       },
       "7d": {
-        "count": 0,
+        "count": 3,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 0,
+        "count": 3,
         "volume": "0 IP"
       },
       "30d": {
-        "count": 0,
+        "count": 3,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 0,
+        "count": 3,
         "volume": "0 IP"
       },
       "all": {
-        "count": 0,
+        "count": 3,
         "volume": "0 IP"
       }
     },
-    "last_scanned_timestamp": 1767961909000,
+    "last_scanned_timestamp": 1768086957000,
     "known_spam_count": 35
   },
   {
@@ -140521,45 +140482,6 @@
     "known_spam_count": 8
   },
   {
-    "address": "0xB9cBE4c2f6400118ABdA5f3c79fC2295F625Fa27",
-    "name": "sirius.ip",
-    "balance": "1.72",
-    "transaction_count": 1469,
-    "last_active": 1768083710000,
-    "last_stats": {
-      "24h": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "3d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "7d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "14d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "30d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "90d": {
-        "count": 2,
-        "volume": "0 IP"
-      },
-      "all": {
-        "count": 2,
-        "volume": "0 IP"
-      }
-    },
-    "last_scanned_timestamp": 1768083710000,
-    "known_spam_count": 2
-  },
-  {
     "address": "0x576aE8F8b3CbEb0f6204577B03C91c50E084694e",
     "name": "Unknown",
     "balance": "5.27",
@@ -140603,39 +140525,39 @@
     "name": "bitrue.ip",
     "balance": "0.42",
     "tx_count": 770,
-    "last_active": 1768000091000,
+    "last_active": 1768087297000,
     "transaction_count": 846,
     "last_stats": {
       "24h": {
-        "count": 0,
+        "count": 2,
         "volume": "0 IP"
       },
       "3d": {
-        "count": 0,
+        "count": 2,
         "volume": "0 IP"
       },
       "7d": {
-        "count": 0,
+        "count": 2,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 0,
+        "count": 2,
         "volume": "0 IP"
       },
       "30d": {
-        "count": 0,
+        "count": 2,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 0,
+        "count": 2,
         "volume": "0 IP"
       },
       "all": {
-        "count": 0,
+        "count": 2,
         "volume": "0 IP"
       }
     },
-    "last_scanned_timestamp": 1768000091000,
+    "last_scanned_timestamp": 1768087297000,
     "known_spam_count": 0
   },
   {
@@ -140643,39 +140565,39 @@
     "name": "indian.ip",
     "balance": "0.10",
     "tx_count": 612,
-    "last_active": 1768000510000,
+    "last_active": 1768087797000,
     "transaction_count": 843,
     "last_stats": {
       "24h": {
-        "count": 0,
+        "count": 2,
         "volume": "0 IP"
       },
       "3d": {
-        "count": 0,
+        "count": 2,
         "volume": "0 IP"
       },
       "7d": {
-        "count": 0,
+        "count": 2,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 0,
+        "count": 2,
         "volume": "0 IP"
       },
       "30d": {
-        "count": 0,
+        "count": 2,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 0,
+        "count": 2,
         "volume": "0 IP"
       },
       "all": {
-        "count": 0,
+        "count": 2,
         "volume": "0 IP"
       }
     },
-    "last_scanned_timestamp": 1768000510000,
+    "last_scanned_timestamp": 1768087797000,
     "known_spam_count": 0
   },
   {
@@ -142615,40 +142537,40 @@
     "address": "0xb9cbeF341AC5088223473e03B4D668C6b4d1D6B8",
     "name": "soltys.ip",
     "balance": "0.21",
-    "transaction_count": 4903,
-    "last_active": 1768073682000,
+    "transaction_count": 4902,
+    "last_active": 1768090094000,
     "last_stats": {
       "24h": {
-        "count": 0,
+        "count": 1,
         "volume": "0 IP"
       },
       "3d": {
-        "count": 0,
+        "count": 1,
         "volume": "0 IP"
       },
       "7d": {
-        "count": 0,
+        "count": 1,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 0,
+        "count": 1,
         "volume": "0 IP"
       },
       "30d": {
-        "count": 0,
+        "count": 1,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 0,
+        "count": 1,
         "volume": "0 IP"
       },
       "all": {
-        "count": 0,
+        "count": 1,
         "volume": "0 IP"
       }
     },
-    "last_scanned_timestamp": 1768073682000,
-    "known_spam_count": 11
+    "last_scanned_timestamp": 1768090094000,
+    "known_spam_count": 12
   },
   {
     "address": "0xEbB90072c222D029831c5768f0A62Beb7AA0dFA3",
@@ -142691,42 +142613,120 @@
     "known_spam_count": 12
   },
   {
-    "address": "0x1Ad8F11Db7b452D12a6F886b6eead9F05C71a986",
+    "address": "0xDb819f7b4F275babBd19BCEDe38829d69143f660",
     "name": "Unknown",
-    "balance": "0.10",
-    "transaction_count": 43532,
-    "last_active": 1768082749000,
+    "balance": "0.53",
+    "transaction_count": 622,
+    "last_active": 1768079615000,
     "last_stats": {
       "24h": {
-        "count": 16,
+        "count": 0,
         "volume": "0 IP"
       },
       "3d": {
-        "count": 16,
+        "count": 0,
         "volume": "0 IP"
       },
       "7d": {
-        "count": 16,
+        "count": 0,
         "volume": "0 IP"
       },
       "14d": {
-        "count": 16,
+        "count": 0,
         "volume": "0 IP"
       },
       "30d": {
-        "count": 16,
+        "count": 0,
         "volume": "0 IP"
       },
       "90d": {
-        "count": 16,
+        "count": 0,
         "volume": "0 IP"
       },
       "all": {
-        "count": 16,
+        "count": 0,
         "volume": "0 IP"
       }
     },
-    "last_scanned_timestamp": 1768082749000,
+    "last_scanned_timestamp": 1768079615000,
     "known_spam_count": 0
+  },
+  {
+    "address": "0x1Ad8F11Db7b452D12a6F886b6eead9F05C71a986",
+    "name": "Unknown",
+    "balance": "0.10",
+    "transaction_count": 43548,
+    "last_active": 1768093671000,
+    "last_stats": {
+      "24h": {
+        "count": 24,
+        "volume": "0 IP"
+      },
+      "3d": {
+        "count": 24,
+        "volume": "0 IP"
+      },
+      "7d": {
+        "count": 24,
+        "volume": "0 IP"
+      },
+      "14d": {
+        "count": 24,
+        "volume": "0 IP"
+      },
+      "30d": {
+        "count": 24,
+        "volume": "0 IP"
+      },
+      "90d": {
+        "count": 24,
+        "volume": "0 IP"
+      },
+      "all": {
+        "count": 24,
+        "volume": "0 IP"
+      }
+    },
+    "last_scanned_timestamp": 1768093671000,
+    "known_spam_count": 0
+  },
+  {
+    "address": "0xB9cBE4c2f6400118ABdA5f3c79fC2295F625Fa27",
+    "name": "sirius.ip",
+    "balance": "1.72",
+    "transaction_count": 1471,
+    "last_active": 1768083710000,
+    "last_stats": {
+      "24h": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "3d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "7d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "14d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "30d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "90d": {
+        "count": 0,
+        "volume": "0 IP"
+      },
+      "all": {
+        "count": 0,
+        "volume": "0 IP"
+      }
+    },
+    "last_scanned_timestamp": 1768083710000,
+    "known_spam_count": 2
   }
 ]
