@@ -257,24 +257,22 @@ export function LeaderboardTable() {
                 <div className="overflow-x-auto">
                     <table className="w-full text-left border-collapse">
                         <thead>
-                            <thead>
-                                <tr className="bg-gray-900/50 text-gray-400 text-xs uppercase tracking-wider font-semibold border-b border-gray-800">
-                                    <th className="p-4 w-16 text-center">Rank</th>
-                                    <th className="p-4 cursor-pointer hover:text-white transition-colors" onClick={() => handleSort('name')}>
-                                        <div className="flex items-center gap-1">User (.ip) {sortConfig?.key === 'name' && (sortConfig.direction === 'asc' ? <ArrowUp className="w-3 h-3" /> : <ArrowDown className="w-3 h-3" />)}</div>
-                                    </th>
-                                    <th className="p-4 text-right cursor-pointer hover:text-white transition-colors" onClick={() => handleSort('transaction_count')}>
-                                        <div className="flex items-center justify-end gap-1">Transactions {sortConfig?.key === 'transaction_count' && (sortConfig.direction === 'asc' ? <ArrowUp className="w-3 h-3" /> : <ArrowDown className="w-3 h-3" />)}</div>
-                                    </th>
-                                    <th className="p-4 text-right cursor-pointer hover:text-white transition-colors" onClick={() => handleSort('net_worth_usd')}>
-                                        <div className="flex items-center justify-end gap-1">Balance (Net Worth) {sortConfig?.key === 'net_worth_usd' && (sortConfig.direction === 'asc' ? <ArrowUp className="w-3 h-3" /> : <ArrowDown className="w-3 h-3" />)}</div>
-                                    </th>
-                                    <th className="p-4 text-right cursor-pointer hover:text-white transition-colors" onClick={() => handleSort('last_active')}>
-                                        <div className="flex items-center justify-end gap-1">Last Active {sortConfig?.key === 'last_active' && (sortConfig.direction === 'asc' ? <ArrowUp className="w-3 h-3" /> : <ArrowDown className="w-3 h-3" />)}</div>
-                                    </th>
-                                    <th className="p-4 text-center">Action</th>
-                                </tr>
-                            </thead>
+                            <tr className="bg-gray-900/50 text-gray-400 text-xs uppercase tracking-wider font-semibold border-b border-gray-800">
+                                <th className="p-4 w-16 text-center">Rank</th>
+                                <th className="p-4 cursor-pointer hover:text-white transition-colors" onClick={() => handleSort('name')}>
+                                    <div className="flex items-center gap-1">User (.ip) {sortConfig?.key === 'name' && (sortConfig.direction === 'asc' ? <ArrowUp className="w-3 h-3" /> : <ArrowDown className="w-3 h-3" />)}</div>
+                                </th>
+                                <th className="p-4 text-right cursor-pointer hover:text-white transition-colors" onClick={() => handleSort('transaction_count')}>
+                                    <div className="flex items-center justify-end gap-1">Transactions {sortConfig?.key === 'transaction_count' && (sortConfig.direction === 'asc' ? <ArrowUp className="w-3 h-3" /> : <ArrowDown className="w-3 h-3" />)}</div>
+                                </th>
+                                <th className="p-4 text-right cursor-pointer hover:text-white transition-colors" onClick={() => handleSort('net_worth_usd')}>
+                                    <div className="flex items-center justify-end gap-1">Balance (Net Worth) {sortConfig?.key === 'net_worth_usd' && (sortConfig.direction === 'asc' ? <ArrowUp className="w-3 h-3" /> : <ArrowDown className="w-3 h-3" />)}</div>
+                                </th>
+                                <th className="p-4 text-right cursor-pointer hover:text-white transition-colors" onClick={() => handleSort('last_active')}>
+                                    <div className="flex items-center justify-end gap-1">Last Active {sortConfig?.key === 'last_active' && (sortConfig.direction === 'asc' ? <ArrowUp className="w-3 h-3" /> : <ArrowDown className="w-3 h-3" />)}</div>
+                                </th>
+                                <th className="p-4 text-center">Action</th>
+                            </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-800/50">
                             {paginatedData.map((entry, index) => {
