@@ -217,6 +217,7 @@ async function fetchWalletDetails(address, existingWalletData = {}, retries = 5)
                 '7d': 7 * 24 * 60 * 60 * 1000,
                 '14d': 14 * 24 * 60 * 60 * 1000,
                 '30d': 30 * 24 * 60 * 60 * 1000,
+                '60d': 60 * 24 * 60 * 60 * 1000,
                 '90d': 90 * 24 * 60 * 60 * 1000,
                 'all': Infinity
             };
