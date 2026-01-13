@@ -9,37 +9,52 @@ const STORY_API_BASE = 'https://www.storyscan.io/api/v2';
 const API_KEY = 'MhBsxkU1z9fG6TofE59KqiiWV-YlYE8Q4awlLQehF3U';
 
 // OPTIMIZED SETTINGS
-const CONCURRENCY = 50; // Increased concurrency
+const CONCURRENCY = 10; // Reduced to prevent 429s
 const LIST_FILE = 'Story.txt';
 
-async function get(url) {
+async function get(url, retries = 5) {
     return new Promise((resolve, reject) => {
-        const req = https.get(url, {
-            headers: {
-                'User-Agent': 'Mozilla/5.0',
-                'Accept': 'application/json',
-                'X-API-Key': API_KEY // Authenticated Request
-            },
-            timeout: 10000
-        }, (res) => {
-            if (res.statusCode === 429) {
-                return reject(new Error(`429`));
-            }
-            if (res.statusCode < 200 || res.statusCode > 299) {
-                return reject(new Error(`HTTP ${res.statusCode}`));
-            }
-            let data = '';
-            res.on('data', chunk => data += chunk);
-            res.on('end', () => {
-                try {
-                    resolve(JSON.parse(data));
-                } catch {
-                    reject(new Error('Invalid JSON'));
+        const attempt = async (n) => {
+            const req = https.get(url, {
+                headers: {
+                    'User-Agent': 'Mozilla/5.0',
+                    'Accept': 'application/json',
+                    'X-API-Key': API_KEY // Authenticated Request
+                },
+                timeout: 10000
+            }, (res) => {
+                if (res.statusCode === 429) {
+                    if (n > 0) {
+                        const delay = 1000 * (6 - n) + Math.random() * 500;
+                        console.log(`⚠️ 429 Rate Limit. Retrying in ${Math.round(delay)}ms... (${url})`);
+                        setTimeout(() => attempt(n - 1), delay);
+                        return;
+                    }
+                    return reject(new Error(`429`));
+                }
+                if (res.statusCode < 200 || res.statusCode > 299) {
+                    return reject(new Error(`HTTP ${res.statusCode}`));
+                }
+                let data = '';
+                res.on('data', chunk => data += chunk);
+                res.on('end', () => {
+                    try {
+                        resolve(JSON.parse(data));
+                    } catch {
+                        reject(new Error('Invalid JSON'));
+                    }
+                });
+            });
+            req.on('error', (err) => {
+                if (n > 0) {
+                    setTimeout(() => attempt(n - 1), 1000);
+                } else {
+                    reject(err);
                 }
             });
-        });
-        req.on('error', (err) => reject(err));
-        req.on('timeout', () => req.destroy());
+            req.on('timeout', () => req.destroy());
+        };
+        attempt(retries);
     });
 }
 
@@ -112,14 +127,40 @@ async function fetchWalletDetails(address, existingWalletData = {}, retries = 5)
         const existingSpamCount = existingWalletData.known_spam_count || 0;
 
         // 1. Fetch Counts & Balance
-        const [info, counters] = await Promise.all([
+        const [info, counters, tokens] = await Promise.all([
             get(`${STORY_API_BASE}/addresses/${address}`),
             get(`${STORY_API_BASE}/addresses/${address}/counters`),
+            get(`${STORY_API_BASE}/addresses/${address}/token-balances`),
         ]);
 
+        let netWorthUSD = 0;
+
+        // 1. Native Coin Wealth
         let balance = "0.00";
-        if (info && info.coin_balance) balance = (Number(BigInt(info.coin_balance)) / 1e18).toFixed(2);
+        if (info && info.coin_balance) {
+            const balNum = Number(BigInt(info.coin_balance)) / 1e18;
+            balance = balNum.toFixed(2);
+
+            if (info.exchange_rate) {
+                netWorthUSD += balNum * parseFloat(info.exchange_rate);
+            }
+        }
         if (parseFloat(balance) > 100000000) balance = "0.00";
+
+        // 2. Token Wealth
+        if (Array.isArray(tokens)) {
+            tokens.forEach(t => {
+                if (t.value && t.token && t.token.exchange_rate) {
+                    const decimals = t.token.decimals ? parseInt(t.token.decimals) : 18;
+                    const val = Number(BigInt(t.value)) / (10 ** decimals);
+                    const price = parseFloat(t.token.exchange_rate);
+                    if (!isNaN(val) && !isNaN(price)) {
+                        netWorthUSD += val * price;
+                    }
+                }
+            });
+        }
+
 
         // Use Counter as Base check
         let totalStats = counters && counters.transactions_count ? parseInt(counters.transactions_count) : 0;
@@ -237,6 +278,7 @@ async function fetchWalletDetails(address, existingWalletData = {}, retries = 5)
 
         return {
             balance,
+            net_worth_usd: netWorthUSD, // NEW FIELD
             txCount: validTxCount,
             lastActive,
             stats: timeStats,
@@ -333,6 +375,9 @@ async function run() {
             const data = await fetchWalletDetails(wallet.address, wallet);
             if (data.success) {
                 wallet.balance = data.balance;
+                if (data.net_worth_usd !== undefined) {
+                    wallet.net_worth_usd = data.net_worth_usd;
+                }
                 wallet.transaction_count = data.txCount;
                 if (data.lastActive > 0) {
                     wallet.last_active = data.lastActive;

@@ -14,6 +14,7 @@ interface DomainEntry {
     name: string;
     transaction_count: string | number; // Updated to match JSON
     balance: string;
+    net_worth_usd?: number; // New Field
     last_active: string | number;
 }
 
@@ -120,7 +121,7 @@ export function LeaderboardTable() {
                                 <th className="p-4 w-16 text-center">Rank</th>
                                 <th className="p-4">User (.ip)</th>
                                 <th className="p-4 text-right">Transactions</th>
-                                <th className="p-4 text-right">Balance</th>
+                                <th className="p-4 text-right">Balance (Net Worth)</th>
                                 <th className="p-4 text-right">Last Active</th>
                                 <th className="p-4 text-center">Action</th>
                             </tr>
@@ -162,7 +163,12 @@ export function LeaderboardTable() {
                                             </div>
                                         </td>
                                         <td className="p-4 text-right text-gray-400 font-mono text-sm">
-                                            {Number(entry.balance).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} IP
+                                            <div>
+                                                {Number(entry.balance).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} IP
+                                            </div>
+                                            <div className="text-xs text-green-500 font-medium mt-1">
+                                                ${(entry.net_worth_usd || 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                            </div>
                                         </td>
                                         <td className="p-4 text-right text-sm text-gray-500">
                                             <ClientDate timestamp={entry.last_active} />
