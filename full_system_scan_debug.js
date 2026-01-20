@@ -8,8 +8,8 @@ const STORY_API_BASE = 'https://www.storyscan.io/api/v2';
 // Mainnet Public Key (300 req/s limit)
 const API_KEY = 'MhBsxkU1z9fG6TofE59KqiiWV-YlYE8Q4awlLQehF3U';
 
-// OPTIMIZED SETTINGS - API can handle 200 req/s
-const CONCURRENCY = 50; // Increased for faster scanning
+// OPTIMIZED SETTINGS
+const CONCURRENCY = 10; // Reduced to prevent 429s
 const LIST_FILE = 'Story.txt';
 
 const classifyTx = (tx) => {
@@ -359,115 +359,53 @@ async function sleep(ms) {
 }
 
 async function run() {
-    console.log(" Starting Full System Scan (OPTIMIZED SPEED 5x)...");
+    console.log("DEBUG SCAN STARTING...");
+    const target = '0x208a0e013Eeb3155c2352A4e8A6926f5c3853f7b';
+    const wallet = {
+        address: target,
+        name: 'Debug Wallet',
+        last_scanned_timestamp: 0 // Force full scan
+    };
 
-    let existingData = [];
-    // Ensure checks for directory and file existence
-    const dir = path.dirname(FILE);
-    if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir, { recursive: true });
-    }
+    console.log(`Scanning ${target}...`);
+    const data = await fetchWalletDetails(target, wallet);
 
-    if (fs.existsSync(FILE)) {
+    if (data.success) {
+        console.log("SUCCESS!");
+        console.log("STATS:", JSON.stringify(data.stats.all, null, 2));
+
+        // SAVE TO FILE
         try {
             const rawData = fs.readFileSync(FILE, 'utf-8');
-            existingData = JSON.parse(rawData);
-        } catch (err) {
-            console.error("⚠️ Error reading known_domains.json. Starting fresh/empty.", err.message);
-            existingData = [];
-        }
-    } else {
-        console.log("⚠️ known_domains.json not found. Creating new empty file.");
-        fs.writeFileSync(FILE, JSON.stringify([], null, 2));
-    }
+            const domainList = JSON.parse(rawData);
+            const index = domainList.findIndex(w => w.address.toLowerCase() === target.toLowerCase());
 
-    // Remove duplicates
-    const uniqueMap = new Map();
-    existingData.forEach(d => uniqueMap.set(d.address.toLowerCase(), d));
+            if (index !== -1) {
+                // Update existing
+                const w = domainList[index];
+                w.balance = data.balance;
+                w.net_worth_usd = data.net_worth_usd;
+                w.transaction_count = data.txCount;
+                w.last_active = data.lastActive;
+                w.last_stats = data.stats;
+                w.last_scanned_timestamp = data.last_scanned_timestamp;
+                w.known_spam_count = data.known_spam_count;
 
-    // IMPORT FROM STORY.TXT to find missing
-    if (fs.existsSync(LIST_FILE)) {
-        const rawList = fs.readFileSync(LIST_FILE, 'utf-8');
-        const addresses = [...new Set(rawList.split('\n').map(l => l.trim()).filter(l => l.startsWith('0x')))];
-        console.log(`📄 Loaded ${addresses.length} addresses from Story.txt`);
-
-        let newCount = 0;
-        addresses.forEach(addr => {
-            const lower = addr.toLowerCase();
-            if (!uniqueMap.has(lower)) {
-                uniqueMap.set(lower, {
-                    address: addr,
-                    name: 'Unknown',
-                    balance: "0.00",
-                    transaction_count: 0,
-                    last_active: 0
-                });
-                newCount++;
-            }
-        });
-        console.log(`➕ Added ${newCount} missing wallets to the scan list.`);
-    }
-
-    const uniqueWallets = Array.from(uniqueMap.values());
-
-    // PRIORITY SORT: Never-scanned first, then oldest-scanned
-    uniqueWallets.sort((a, b) => {
-        const aTs = a.last_scanned_timestamp || 0;
-        const bTs = b.last_scanned_timestamp || 0;
-        return aTs - bTs; // Smallest (0 or oldest) first
-    });
-
-    const neverScanned = uniqueWallets.filter(w => !w.last_scanned_timestamp).length;
-    console.log(`📋 Total Unique Wallets: ${uniqueWallets.length} | Never Scanned: ${neverScanned} (Priority)`);
-
-    let processed = 0;
-
-    for (let i = 0; i < uniqueWallets.length; i += CONCURRENCY) {
-        const chunk = uniqueWallets.slice(i, i + CONCURRENCY);
-
-        const promises = chunk.map(async (wallet) => {
-            // Pass existing wallet data for INCREMENTAL scanning
-            const data = await fetchWalletDetails(wallet.address, wallet);
-            if (data.success) {
-                wallet.balance = data.balance;
-                if (data.net_worth_usd !== undefined) {
-                    wallet.net_worth_usd = data.net_worth_usd;
-                }
-                wallet.transaction_count = data.txCount;
-                if (data.lastActive > 0) {
-                    wallet.last_active = data.lastActive;
-                }
-                if (data.stats) {
-                    wallet.last_stats = data.stats;
-                }
-                // NEW: Store incremental scan data
-                if (data.last_scanned_timestamp) {
-                    wallet.last_scanned_timestamp = data.last_scanned_timestamp;
-                }
-                if (data.known_spam_count !== undefined) {
-                    wallet.known_spam_count = data.known_spam_count;
-                }
-                const timeStr = wallet.last_active ? new Date(wallet.last_active).toLocaleString() : "Never";
-                console.log(`[✅ UPDATED] ${wallet.address} | Bal: ${wallet.balance} | Tx: ${wallet.transaction_count} | Spam: ${wallet.known_spam_count || 0} | Last: ${timeStr}`);
+                domainList[index] = w;
+                console.log("Updating existing wallet entry...");
             } else {
-                console.log(`❌ Failed: ${wallet.address} | Error: ${data.error}`);
+                console.log("Wallet not found in file, ignoring save (debug mode).");
             }
-            return true;
-        });
 
-        await Promise.all(promises);
-        processed += chunk.length;
-
-        if (processed % 20 === 0) { // Save every 20 items (optimized)
-            fs.writeFileSync(FILE, JSON.stringify(uniqueWallets, null, 2));
+            fs.writeFileSync(FILE, JSON.stringify(domainList, null, 2));
+            console.log("✅ Saved to known_domains.json");
+        } catch (e) {
+            console.error("Error saving:", e);
         }
 
-        // Fast sleep
-        await sleep(100);
+    } else {
+        console.log("FAILED:", data.error);
     }
-
-    fs.writeFileSync(FILE, JSON.stringify(uniqueWallets, null, 2));
-    console.log("\n✅ ALL WALLETS UPDATED SUCCESSFULLY.");
 }
 
 run();

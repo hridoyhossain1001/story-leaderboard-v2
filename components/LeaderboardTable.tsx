@@ -16,6 +16,7 @@ interface DomainEntry {
     balance: string;
     net_worth_usd?: number; // New Field
     last_active: string | number;
+    last_stats?: Record<string, { count: number; volume: string; swap_count?: number; license_count?: number; asset_count?: number }>;
 }
 
 const ClientDate = ({ timestamp }: { timestamp: string | number }) => {
@@ -28,7 +29,10 @@ const ClientDate = ({ timestamp }: { timestamp: string | number }) => {
 
 export function LeaderboardTable() {
     const { data: historicalData } = useSWR<DomainEntry[]>('/known_domains.json', fetcher, {
-        refreshInterval: 3000
+        refreshInterval: 60000, // Refresh every 60 seconds (was 3s - too aggressive!)
+        dedupingInterval: 30000, // Dedupe requests within 30 seconds
+        revalidateOnFocus: false, // Don't re-fetch on tab focus
+        revalidateIfStale: false // Use cached data first
     });
 
     const [searchTerm, setSearchTerm] = useState('');
@@ -45,7 +49,7 @@ export function LeaderboardTable() {
         activeWithin: 'all' as 'all' | '24h' | '7d' | '30d'
     });
 
-    const [selectedWallet, setSelectedWallet] = useState<{ name: string, address: string } | null>(null);
+    const [selectedWallet, setSelectedWallet] = useState<DomainEntry | null>(null);
     const [currentPage, setCurrentPage] = useState(1);
     const ITEMS_PER_PAGE = 50;
 
@@ -281,7 +285,7 @@ export function LeaderboardTable() {
                                     <tr
                                         key={entry.address}
                                         className="hover:bg-gray-900/40 transition-colors group cursor-pointer"
-                                        onClick={() => setSelectedWallet({ name: entry.name, address: entry.address })}
+                                        onClick={() => setSelectedWallet(entry)}
                                     >
                                         <td className="p-4 text-center">
                                             <span className={clsx(
@@ -343,7 +347,13 @@ export function LeaderboardTable() {
                                             <div className="flex flex-col items-center gap-4">
                                                 <p>Address not found in leaderboard.</p>
                                                 <button
-                                                    onClick={() => setSelectedWallet({ name: 'Unknown Address', address: searchTerm })}
+                                                    onClick={() => setSelectedWallet({
+                                                        name: 'Unknown Address',
+                                                        address: searchTerm,
+                                                        transaction_count: 0,
+                                                        balance: '0',
+                                                        last_active: 0
+                                                    })}
                                                     className="flex items-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-all shadow-lg hover:shadow-purple-500/25"
                                                 >
                                                     <Activity className="w-5 h-5" />
@@ -394,7 +404,7 @@ export function LeaderboardTable() {
                 onClose={() => setSelectedWallet(null)}
                 address={selectedWallet?.address || ''}
                 name={selectedWallet?.name || ''}
-                precalculatedStats={(selectedWallet as any)?.last_stats}
+                precalculatedStats={selectedWallet?.last_stats}
             />
         </div >
     );
