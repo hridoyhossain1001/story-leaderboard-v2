@@ -149,8 +149,9 @@ export function WalletDetailsModal({ isOpen, onClose, address, name, precalculat
                 // ASSET: Must contain register/create AND NOT license (to avoid overlap)
                 // ASSET: Register, Create IP, or Attach Terms (Creator Actions)
                 // We define 'attachpilterms' as Asset behavior because you are setting terms for your own IP.
-                else if (method.includes('register') || decoded.includes('register') || method.includes('createip') ||
-                    method.includes('attachpilterms') || decoded.includes('attachpilterms')) {
+                // EXCLUDE 'bulkregister' (Domain Registration) to avoid false positives.
+                else if ((method.includes('register') || decoded.includes('register') || method.includes('createip') ||
+                    method.includes('attachpilterms') || decoded.includes('attachpilterms')) && !method.includes('bulkregister') && !decoded.includes('bulkregister')) {
                     assetCount++;
                     breakdown.asset[key] = (breakdown.asset[key] || 0) + 1;
                 }
