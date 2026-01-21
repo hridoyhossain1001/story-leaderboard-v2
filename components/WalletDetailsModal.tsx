@@ -142,6 +142,9 @@ export function WalletDetailsModal({ isOpen, onClose, address, name, precalculat
                 const key = `${contractName}|${methodDisplay}`;
 
                 // STRICT CLASSIFICATION LOGIC
+                // Helper to check full decoded payload for keywords
+                const fullDecoded = JSON.stringify(tx.decoded_input || {}).toLowerCase();
+
                 if (method.includes('swap') || decoded.includes('swap') || (method.includes('multicall') && isPiper)) {
                     swapCount++;
                     breakdown.swap[key] = (breakdown.swap[key] || 0) + 1;
@@ -150,8 +153,10 @@ export function WalletDetailsModal({ isOpen, onClose, address, name, precalculat
                 // ASSET: Register, Create IP, or Attach Terms (Creator Actions)
                 // We define 'attachpilterms' as Asset behavior because you are setting terms for your own IP.
                 // EXCLUDE 'bulkregister' (Domain Registration) to avoid false positives.
-                else if ((method.includes('register') || decoded.includes('register') || method.includes('createip') ||
-                    method.includes('attachpilterms') || decoded.includes('attachpilterms')) && !method.includes('bulkregister') && !decoded.includes('bulkregister')) {
+                // INCLUDE 'NonfungiblePositionManager' (Uniswap V3 LP) IF it involves IP (licensor/mint) OR specific 'mint' selector (0x88316456).
+                else if (((method.includes('register') || decoded.includes('register') || method.includes('createip') ||
+                    method.includes('attachpilterms') || decoded.includes('attachpilterms')) && !method.includes('bulkregister') && !decoded.includes('bulkregister'))
+                    || (contractName.toLowerCase().includes('nonfungiblepositionmanager') && (fullDecoded.includes('licensor') || fullDecoded.includes('mint') || fullDecoded.includes('88316456')))) {
                     assetCount++;
                     breakdown.asset[key] = (breakdown.asset[key] || 0) + 1;
                 }
