@@ -179,8 +179,8 @@ export function WalletDetailsModal({ isOpen, onClose, address, name, precalculat
             let keepFetching = true;
             let totalFetched = 0;
 
-            // Fetch up to 2000 txs max
-            while (keepFetching && totalFetched < 2000) {
+            // Fetch up to 5000 txs max (increased from 2000 per user request)
+            while (keepFetching && totalFetched < 5000) {
                 const params = new URLSearchParams(nextPageParams);
                 params.set('items_count', '50'); // API max is 50 per page
 
@@ -277,8 +277,8 @@ export function WalletDetailsModal({ isOpen, onClose, address, name, precalculat
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200" onClick={onClose}>
-            <div className="bg-[#0a0a0a] border border-gray-800 rounded-2xl w-full max-w-2xl shadow-2xl p-6 relative" onClick={e => e.stopPropagation()}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 md:p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200" onClick={onClose}>
+            <div className="bg-[#0a0a0a] border border-gray-800 rounded-2xl w-full max-w-2xl shadow-2xl p-3 md:p-6 relative max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
                 <button
                     onClick={onClose}
                     className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors"
@@ -286,8 +286,8 @@ export function WalletDetailsModal({ isOpen, onClose, address, name, precalculat
                     <X className="w-5 h-5" />
                 </button>
 
-                <div className="mb-6 border-b border-gray-800 pb-4">
-                    <h2 className="text-2xl font-bold text-white mb-1 flex items-center gap-2">
+                <div className="mb-4 md:mb-6 border-b border-gray-800 pb-3 md:pb-4">
+                    <h2 className="text-xl md:text-2xl font-bold text-white mb-1 flex items-center gap-2">
                         <Activity className="w-5 h-5 text-purple-500" />
                         {domainName && name === 'Unknown' ? domainName : name}
                         {domainName && name !== 'Unknown' && name !== domainName && (
@@ -320,7 +320,7 @@ export function WalletDetailsModal({ isOpen, onClose, address, name, precalculat
                     </div>
                 )}
 
-                <div className="flex space-x-2 mb-6 bg-gray-900/50 p-1 rounded-lg">
+                <div className="grid grid-cols-4 gap-2 md:flex md:space-x-2 md:gap-0 mb-6 bg-gray-900/50 p-1 rounded-lg">
                     {(['24h', '3d', '7d', '14d', '30d', '60d', '90d', 'all'] as const).map((tab) => (
                         <button
                             key={tab}
@@ -357,7 +357,7 @@ export function WalletDetailsModal({ isOpen, onClose, address, name, precalculat
                                 <span className="text-xs text-purple-400 font-medium tracking-wider uppercase">Live Update</span>
                             </div>
                         )}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-2 gap-2 md:gap-4">
                             {stats ? (
                                 <>
                                     <StatCard

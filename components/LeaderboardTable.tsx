@@ -58,6 +58,9 @@ export function LeaderboardTable() {
             let processed = [...historicalData];
 
             // 1. apply Filters
+            // Hard exclude 'piper.ip' as per user request
+            processed = processed.filter(p => p.name !== 'piper.ip');
+
             if (filters.minNetWorth) {
                 const minVal = parseFloat(filters.minNetWorth);
                 processed = processed.filter(p => (p.net_worth_usd || 0) >= minVal);
@@ -139,37 +142,38 @@ export function LeaderboardTable() {
     const paginatedData = filteredData.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
     return (
-        <div className="w-full max-w-6xl mx-auto p-4 space-y-6">
+        <div className="w-full max-w-6xl mx-auto p-2 md:p-4 space-y-4 md:space-y-6">
             {/* Stats Cards (unchanged) */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-gray-900 border border-gray-800 p-6 rounded-xl relative overflow-hidden group">
-                    <div className="z-10 relative">
-                        <div className="text-gray-400 text-sm font-medium mb-1 flex items-center gap-2">
-                            <Activity className="w-4 h-4 text-purple-500" /> Total Active .ip Users
+            {/* Stats Cards (Compact Merged) */}
+            <div className="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden shadow-lg p-4 md:p-6">
+                <div className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-8 items-center">
+                    {/* Stat 1: Total Active */}
+                    <div className="relative z-10 border-r border-gray-800 pr-3 md:border-none md:pr-0">
+                        <div className="text-gray-400 text-[10px] md:text-sm font-medium mb-1 flex items-center gap-1 md:gap-2">
+                            <Activity className="w-3 h-3 md:w-4 md:h-4 text-purple-500" />
+                            <span className="hidden md:inline">Total Active .ip Users</span>
+                            <span className="md:hidden">Active .ip</span>
                         </div>
-                        <div className="text-3xl font-bold text-white tracking-tight">
-                            {historicalData ? historicalData.length : '...'}
+                        <div className="text-xl md:text-3xl font-bold text-white tracking-tight">
+                            {historicalData ? historicalData.filter(p => p.name !== 'piper.ip').length : '...'}
                         </div>
                     </div>
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-purple-600/10 rounded-full blur-3xl -mr-10 -mt-10 group-hover:bg-purple-600/20 transition-all duration-500"></div>
-                </div>
 
-                <div className="bg-gray-900 border border-gray-800 p-6 rounded-xl relative overflow-hidden group">
-                    <div className="z-10 relative">
-                        <div className="text-gray-400 text-sm font-medium mb-1 flex items-center gap-2">
-                            <Trophy className="w-4 h-4 text-yellow-500" /> Top Active
+                    {/* Stat 2: Top Active */}
+                    <div className="relative z-10 pl-1 md:pl-0">
+                        <div className="text-gray-400 text-[10px] md:text-sm font-medium mb-1 flex items-center gap-1 md:gap-2">
+                            <Trophy className="w-3 h-3 md:w-4 md:h-4 text-yellow-500" /> Top Active
                         </div>
-                        <div className="text-xl font-bold text-white tracking-tight truncate">
+                        <div className="text-base md:text-xl font-bold text-white tracking-tight truncate max-w-[120px] md:max-w-none">
                             {sortedData[0]?.name || 'Loading...'}
                         </div>
                     </div>
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-600/10 rounded-full blur-3xl -mr-10 -mt-10 group-hover:bg-yellow-600/20 transition-all duration-500"></div>
                 </div>
             </div>
 
             {/* Main Table */}
             <div className="bg-[#0a0a0a] border border-gray-800 rounded-2xl overflow-hidden shadow-2xl">
-                <div className="p-6 border-b border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div className="p-4 md:p-6 border-b border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
                     <div>
                         <h2 className="text-xl font-bold text-white flex items-center gap-2">
                             <span className="w-2 h-8 bg-gradient-to-b from-purple-500 to-blue-500 rounded-full inline-block"></span>
@@ -262,20 +266,20 @@ export function LeaderboardTable() {
                     <table className="w-full text-left border-collapse">
                         <thead>
                             <tr className="bg-gray-900/50 text-gray-400 text-xs uppercase tracking-wider font-semibold border-b border-gray-800">
-                                <th className="p-4 w-16 text-center">Rank</th>
-                                <th className="p-4 cursor-pointer hover:text-white transition-colors" onClick={() => handleSort('name')}>
-                                    <div className="flex items-center gap-1">User (.ip) {sortConfig?.key === 'name' && (sortConfig.direction === 'asc' ? <ArrowUp className="w-3 h-3" /> : <ArrowDown className="w-3 h-3" />)}</div>
+                                <th className="p-2 md:p-4 w-12 md:w-16 text-center">Rank</th>
+                                <th className="p-2 md:p-4 cursor-pointer hover:text-white transition-colors" onClick={() => handleSort('name')}>
+                                    <div className="flex items-center gap-1">User {sortConfig?.key === 'name' && (sortConfig.direction === 'asc' ? <ArrowUp className="w-3 h-3" /> : <ArrowDown className="w-3 h-3" />)}</div>
                                 </th>
-                                <th className="p-4 text-right cursor-pointer hover:text-white transition-colors" onClick={() => handleSort('transaction_count')}>
-                                    <div className="flex items-center justify-end gap-1">Transactions {sortConfig?.key === 'transaction_count' && (sortConfig.direction === 'asc' ? <ArrowUp className="w-3 h-3" /> : <ArrowDown className="w-3 h-3" />)}</div>
+                                <th className="p-2 md:p-4 text-right cursor-pointer hover:text-white transition-colors" onClick={() => handleSort('transaction_count')}>
+                                    <div className="flex items-center justify-end gap-1"><span className="hidden md:inline">Transactions</span><span className="md:hidden">Tx</span> {sortConfig?.key === 'transaction_count' && (sortConfig.direction === 'asc' ? <ArrowUp className="w-3 h-3" /> : <ArrowDown className="w-3 h-3" />)}</div>
                                 </th>
-                                <th className="p-4 text-right cursor-pointer hover:text-white transition-colors" onClick={() => handleSort('net_worth_usd')}>
-                                    <div className="flex items-center justify-end gap-1">Balance (Net Worth) {sortConfig?.key === 'net_worth_usd' && (sortConfig.direction === 'asc' ? <ArrowUp className="w-3 h-3" /> : <ArrowDown className="w-3 h-3" />)}</div>
+                                <th className="p-2 md:p-4 text-right cursor-pointer hover:text-white transition-colors" onClick={() => handleSort('net_worth_usd')}>
+                                    <div className="flex items-center justify-end gap-1"><span className="hidden md:inline">Balance (Net Worth)</span><span className="md:hidden">Value</span> {sortConfig?.key === 'net_worth_usd' && (sortConfig.direction === 'asc' ? <ArrowUp className="w-3 h-3" /> : <ArrowDown className="w-3 h-3" />)}</div>
                                 </th>
-                                <th className="p-4 text-right cursor-pointer hover:text-white transition-colors" onClick={() => handleSort('last_active')}>
+                                <th className="p-2 md:p-4 text-right cursor-pointer hover:text-white transition-colors hidden md:table-cell" onClick={() => handleSort('last_active')}>
                                     <div className="flex items-center justify-end gap-1">Last Active {sortConfig?.key === 'last_active' && (sortConfig.direction === 'asc' ? <ArrowUp className="w-3 h-3" /> : <ArrowDown className="w-3 h-3" />)}</div>
                                 </th>
-                                <th className="p-4 text-center">Action</th>
+                                <th className="p-2 md:p-4 text-center hidden md:table-cell">Action</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-800/50">
@@ -287,9 +291,9 @@ export function LeaderboardTable() {
                                         className="hover:bg-gray-900/40 transition-colors group cursor-pointer"
                                         onClick={() => setSelectedWallet(entry)}
                                     >
-                                        <td className="p-4 text-center">
+                                        <td className="p-2 md:p-4 text-center">
                                             <span className={clsx(
-                                                "inline-flex items-center justify-center w-8 h-8 rounded-full text-sm font-bold",
+                                                "inline-flex items-center justify-center w-6 h-6 md:w-8 md:h-8 rounded-full text-xs md:text-sm font-bold",
                                                 globalIndex === 0 ? "bg-yellow-500/20 text-yellow-400" :
                                                     globalIndex === 1 ? "bg-gray-400/20 text-gray-300" :
                                                         globalIndex === 2 ? "bg-orange-500/20 text-orange-400" :
@@ -298,34 +302,34 @@ export function LeaderboardTable() {
                                                 {globalIndex + 1}
                                             </span>
                                         </td>
-                                        <td className="p-4">
+                                        <td className="p-2 md:p-4">
                                             <div className="flex flex-col">
-                                                <span className="text-white font-medium text-lg tracking-tight group-hover:text-purple-400 transition-colors">
+                                                <span className="text-white font-medium text-sm md:text-lg tracking-tight group-hover:text-purple-400 transition-colors">
                                                     {entry.name}
                                                 </span>
-                                                <span className="text-gray-600 text-xs font-mono truncate w-32">
+                                                <span className="text-gray-600 text-[10px] md:text-xs font-mono truncate w-24 md:w-32">
                                                     {entry.address}
                                                 </span>
                                             </div>
                                         </td>
-                                        <td className="p-4 text-right">
-                                            <div className="flex items-center justify-end gap-2 text-gray-300 font-medium">
+                                        <td className="p-2 md:p-4 text-right">
+                                            <div className="flex items-center justify-end gap-1 md:gap-2 text-gray-300 font-medium text-xs md:text-base">
                                                 {parseInt(String(entry.transaction_count || 0)).toLocaleString()}
-                                                <span className="text-xs text-gray-600 bg-gray-900 px-1.5 py-0.5 rounded">TXS</span>
+                                                <span className="text-[10px] md:text-xs text-gray-600 bg-gray-900 px-1 md:px-1.5 py-0.5 rounded hidden md:inline">TXS</span>
                                             </div>
                                         </td>
-                                        <td className="p-4 text-right text-gray-400 font-mono text-sm">
-                                            <div>
+                                        <td className="p-2 md:p-4 text-right text-gray-400 font-mono text-xs md:text-sm">
+                                            <div className="hidden md:block">
                                                 {Number(entry.balance).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} IP
                                             </div>
-                                            <div className="text-xs text-green-500 font-medium mt-1">
-                                                ${(entry.net_worth_usd || 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                            <div className="text-[10px] md:text-xs text-green-500 font-medium mt-0.5 md:mt-1">
+                                                ${(entry.net_worth_usd || 0).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
                                             </div>
                                         </td>
-                                        <td className="p-4 text-right text-sm text-gray-500">
+                                        <td className="p-2 md:p-4 text-right text-sm text-gray-500 hidden md:table-cell">
                                             <ClientDate timestamp={entry.last_active} />
                                         </td>
-                                        <td className="p-4 text-center">
+                                        <td className="p-2 md:p-4 text-center hidden md:table-cell">
                                             <a
                                                 href={`https://www.storyscan.io/address/${entry.address}`}
                                                 target="_blank"

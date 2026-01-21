@@ -10,16 +10,16 @@ export default function Home() {
         <div className="absolute top-0 left-0 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
       </div>
 
-      <div className="relative z-10 pt-10 pb-20">
-        <header className="max-w-6xl mx-auto px-4 mb-16 text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-purple-300 mb-2">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+      <div className="relative z-10 pt-4 pb-4 md:pt-10 md:pb-20">
+        <header className="max-w-6xl mx-auto px-4 mb-4 md:mb-16 text-center space-y-2 md:space-y-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] md:text-xs font-medium text-purple-300 mb-1 md:mb-2">
+            <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-green-500 animate-pulse"></span>
             Story Mainnet Live
           </div>
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40">
+          <h1 className="text-2xl md:text-5xl lg:text-7xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40">
             Story IP <br className="md:hidden" /> Leaderboard
           </h1>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-sm md:text-lg text-gray-400 max-w-2xl mx-auto hidden md:block">
             Discover the most active intellectual property creators and collectors on the Story Protocol network.
           </p>
         </header>
