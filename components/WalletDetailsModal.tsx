@@ -109,6 +109,12 @@ export function WalletDetailsModal({ isOpen, onClose, address, name, precalculat
         for (const tx of transactions) {
             const txDate = new Date(tx.timestamp);
             if (txDate.getTime() >= cutoffTime) {
+                // FILTER: Exclude failed transactions
+                // API v2 uses 'result' field (success/error/execution reverted)
+                if (tx.result && tx.result !== 'success') continue;
+                // Some endpoints might use 'status'
+                if (tx.status === 'error' || tx.status === false) continue;
+
                 currentCount++;
                 const isContractInteraction = tx.to?.is_contract;
                 const val = BigInt(tx.value || 0);
@@ -145,7 +151,18 @@ export function WalletDetailsModal({ isOpen, onClose, address, name, precalculat
                 // Helper to check full decoded payload for keywords
                 const fullDecoded = JSON.stringify(tx.decoded_input || {}).toLowerCase();
 
-                if (method.includes('swap') || decoded.includes('swap') || (method.includes('multicall') && isPiper)) {
+                // 🆕 KNOWN ASSET CONTRACTS LIST (Whitelist)
+                // 0xcC2E... is LicenseAttachmentWorkflows
+                const toHash = (tx.to && tx.to.hash) ? tx.to.hash.toLowerCase() : '';
+                const KNOWN_ASSET_CONTRACTS = [
+                    '0xcC2E862bCee5B6036Db0de6E06Ae87e524a79fd8'.toLowerCase()
+                ];
+
+                if (KNOWN_ASSET_CONTRACTS.includes(toHash)) {
+                    assetCount++;
+                    breakdown.asset[key] = (breakdown.asset[key] || 0) + 1;
+                }
+                else if (method.includes('swap') || decoded.includes('swap') || (method.includes('multicall') && isPiper)) {
                     swapCount++;
                     breakdown.swap[key] = (breakdown.swap[key] || 0) + 1;
                 }
@@ -163,8 +180,14 @@ export function WalletDetailsModal({ isOpen, onClose, address, name, precalculat
                 // LICENSE: Minting or Buying Licenses (Consumer Actions)
                 // We check this AFTER Asset to ensure 'mintAndRegister...' is caught by Asset first.
                 else if (method.includes('license') || decoded.includes('license') || method.includes('mintlicense')) {
-                    licenseCount++;
-                    breakdown.license[key] = (breakdown.license[key] || 0) + 1;
+                    // EXCLUSION: Do not count 'signLicense'
+                    if (method.includes('signlicense') || decoded.includes('signlicense')) {
+                        otherCount++;
+                        breakdown.other[key] = (breakdown.other[key] || 0) + 1;
+                    } else {
+                        licenseCount++;
+                        breakdown.license[key] = (breakdown.license[key] || 0) + 1;
+                    }
                 }
                 else {
                     otherCount++;
@@ -283,258 +306,268 @@ export function WalletDetailsModal({ isOpen, onClose, address, name, precalculat
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 md:p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200" onClick={onClose}>
-            <div className="bg-[#0a0a0a] border border-gray-800 rounded-2xl w-full max-w-2xl shadow-2xl p-3 md:p-6 relative max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
-                <button
-                    onClick={onClose}
-                    className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors"
-                >
-                    <X className="w-5 h-5" />
-                </button>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 md:p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-300" onClick={onClose}>
+            <div className="bg-[#0a0a0a] border border-white/10 rounded-2xl w-full max-w-2xl shadow-2xl p-3 md:p-6 relative max-h-[90vh] overflow-y-auto overflow-x-hidden" onClick={e => e.stopPropagation()}>
 
-                <div className="mb-4 md:mb-6 border-b border-gray-800 pb-3 md:pb-4">
-                    <h2 className="text-xl md:text-2xl font-bold text-white mb-1 flex items-center gap-2">
-                        <Activity className="w-5 h-5 text-purple-500" />
-                        {domainName && name === 'Unknown' ? domainName : name}
-                        {domainName && name !== 'Unknown' && name !== domainName && (
-                            <span className="ml-2 px-2 py-0.5 text-xs font-medium bg-purple-500/20 text-purple-400 rounded-full">
-                                {domainName}
-                            </span>
-                        )}
-                    </h2>
-                    <p className="text-gray-500 text-sm font-mono break-all">{address}</p>
+                {/* 🆕 Background FX Layer */}
+                <div className="absolute inset-0 z-0 pointer-events-none rounded-2xl overflow-hidden">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,#2d1b69,transparent_70%)] opacity-30"></div>
+                    <div className="absolute top-0 left-0 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 brightness-100 contrast-150 mix-blend-overlay"></div>
+                </div>
 
-                    {/* 🆕 LIFETIME STATS ROW */}
-                    {counters && (
-                        <div className="flex gap-4 mt-3 text-xs">
-                            <div className="flex items-center gap-1.5 text-gray-400">
-                                <Activity className="w-3.5 h-3.5 text-blue-400" />
-                                <span className="text-white font-medium">{Number(counters.transactions_count).toLocaleString()}</span> Lifetime TXs
+                {/* Content Container (z-10 to sit above background) */}
+                <div className="relative z-10">
+                    <button
+                        onClick={onClose}
+                        className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors"
+                    >
+                        <X className="w-5 h-5" />
+                    </button>
+
+                    <div className="mb-4 md:mb-6 border-b border-gray-800 pb-3 md:pb-4">
+                        <h2 className="text-xl md:text-2xl font-bold text-white mb-1 flex items-center gap-2">
+                            <Activity className="w-5 h-5 text-purple-500" />
+                            {domainName && name === 'Unknown' ? domainName : name}
+                            {domainName && name !== 'Unknown' && name !== domainName && (
+                                <span className="ml-2 px-2 py-0.5 text-xs font-medium bg-purple-500/20 text-purple-400 rounded-full">
+                                    {domainName}
+                                </span>
+                            )}
+                        </h2>
+                        <p className="text-gray-500 text-sm font-mono break-all">{address}</p>
+
+                        {/* 🆕 LIFETIME STATS ROW */}
+                        {counters && (
+                            <div className="flex gap-4 mt-3 text-xs">
+                                <div className="flex items-center gap-1.5 text-gray-400">
+                                    <Activity className="w-3.5 h-3.5 text-blue-400" />
+                                    <span className="text-white font-medium">{Number(counters.transactions_count).toLocaleString()}</span> Lifetime TXs
+                                </div>
+                                <div className="flex items-center gap-1.5 text-gray-400">
+                                    <RefreshCcw className="w-3.5 h-3.5 text-green-400" />
+                                    <span className="text-white font-medium">{Number(counters.token_transfers_count).toLocaleString()}</span> Transfers
+                                </div>
                             </div>
-                            <div className="flex items-center gap-1.5 text-gray-400">
-                                <RefreshCcw className="w-3.5 h-3.5 text-green-400" />
-                                <span className="text-white font-medium">{Number(counters.token_transfers_count).toLocaleString()}</span> Transfers
+                        )}
+                    </div>
+
+                    {error && (
+                        <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-xl text-sm mb-6 flex items-center gap-2">
+                            <CloudOff className="w-4 h-4" />
+                            {error}
+                        </div>
+                    )}
+
+                    <div className="grid grid-cols-4 gap-2 md:flex md:space-x-2 md:gap-0 mb-6 bg-gray-900/50 p-1 rounded-lg">
+                        {(['24h', '3d', '7d', '14d', '30d', '60d', '90d', 'all'] as const).map((tab) => (
+                            <button
+                                key={tab}
+                                onClick={() => setActiveTab(tab)}
+                                className={`flex-1 py-1.5 text-xs font-medium rounded-md transition-all ${activeTab === tab
+                                    ? 'bg-purple-600 text-black shadow-lg'
+                                    : 'text-gray-400 hover:text-white hover:bg-white/5'
+                                    }`}
+                            >
+                                {tab.toUpperCase()}
+                            </button>
+                        ))}
+                    </div>
+
+                    {loading && transactions.length === 0 ? (
+                        <div className="flex flex-col items-center justify-center py-20 space-y-4">
+                            <Loader2 className="w-10 h-10 text-purple-500 animate-spin" />
+                            <p className="text-gray-400 text-sm animate-pulse">Scanning blockchain history...</p>
+                        </div>
+                    ) : (
+                        <>
+                            {loading && (
+                                <div className="mb-4 bg-purple-500/10 border border-purple-500/20 rounded-lg p-3 flex items-center justify-between animate-pulse">
+                                    <div className="flex items-center gap-2">
+                                        <Loader2 className="w-4 h-4 text-purple-400 animate-spin" />
+                                        <span className="text-sm text-purple-200">
+                                            Scanning blockchain history...
+                                            <span className="font-mono ml-2 font-bold">
+                                                {transactions.length.toLocaleString()}
+                                                {counters ? ` / ${Number(counters.transactions_count).toLocaleString()}` : ''} TXs
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <span className="text-xs text-purple-400 font-medium tracking-wider uppercase">Live Update</span>
+                                </div>
+                            )}
+                            <div className="grid grid-cols-2 gap-2 md:gap-4">
+                                {stats ? (
+                                    <>
+                                        <StatCard
+                                            label={activeTab === 'all' ? "Total Transactions" : `Last ${activeTab.replace('h', ' Hours').replace('d', ' Days')}`}
+                                            value={stats.count.toLocaleString()}
+                                            unit="TXS"
+                                            icon={Clock}
+                                            delay={0}
+                                        />
+                                        <StatCard
+                                            label="Total Volume"
+                                            value={stats.volume}
+                                            icon={Trophy}
+                                            delay={1}
+                                        />
+                                        <StatCard
+                                            label="Swaps"
+                                            value={stats.swap_count || 0}
+                                            icon={RefreshCcw}
+                                            delay={2}
+                                            onClick={() => setSelectedCategory('swap')}
+                                            hasBreakdown={stats.breakdown && Object.keys(stats.breakdown.swap || {}).length > 0}
+                                        />
+                                        <StatCard
+                                            label="Licenses"
+                                            value={stats.license_count || 0}
+                                            subValue="Consumer (Buyer)"
+                                            icon={BadgeCheck}
+                                            delay={3}
+                                            onClick={() => setSelectedCategory('license')}
+                                            hasBreakdown={stats.breakdown && Object.keys(stats.breakdown.license || {}).length > 0}
+                                        />
+                                        <StatCard
+                                            label="Assets"
+                                            value={stats.asset_count || 0}
+                                            subValue="Creator (IP Owner)"
+                                            icon={FileText}
+                                            delay={4}
+                                            onClick={() => setSelectedCategory('asset')}
+                                            hasBreakdown={stats.breakdown && Object.keys(stats.breakdown.asset || {}).length > 0}
+                                        />
+                                        <StatCard
+                                            label="Others"
+                                            value={stats.other_count || 0}
+                                            icon={MoreHorizontal}
+                                            delay={5}
+                                            onClick={() => setSelectedCategory('other')}
+                                            hasBreakdown={stats.breakdown && Object.keys(stats.breakdown.other || {}).length > 0}
+                                        />
+                                    </>
+                                ) : (
+                                    <div className="col-span-full text-center text-gray-500 py-8">No data available for this period.</div>
+                                )}
+                            </div>
+                        </>
+                    )}
+
+                    {!loading && stats && (
+                        <div className="mt-6 pt-4 border-t border-gray-800 text-center">
+                            <p className="text-xs text-gray-600">
+                                Volume counts only <strong>Contract Interactions</strong> (dApps, Minting, etc). Wallet transfers excluded.
+                            </p>
+                        </div>
+                    )}
+
+                    {/* 🆕 NFT/TOKEN GALLERY */}
+                    {tokenBalances.length > 0 && (
+                        <div className="mt-6 pt-4 border-t border-gray-800">
+                            <h3 className="text-sm font-semibold text-white mb-3 flex items-center gap-2">
+                                <Trophy className="w-4 h-4 text-yellow-500" />
+                                Owned Assets ({tokenBalances.length})
+                            </h3>
+                            <div className="grid grid-cols-4 gap-2 max-h-48 overflow-y-auto">
+                                {tokenBalances.slice(0, 100).map((item: any, idx: number) => {
+                                    const token = item.token || {};
+                                    const instance = item.token_instance || {};
+                                    const imageUrl = instance.image_url || token.icon_url;
+                                    const tokenName = token.name || token.symbol || 'Token';
+                                    const tokenId = instance.id ? `#${instance.id}` : '';
+                                    const isNFT = token.type === 'ERC-721' || token.type === 'ERC-1155';
+
+                                    return (
+                                        <div
+                                            key={idx}
+                                            className="bg-gray-900/50 border border-gray-800 rounded-lg p-2 hover:border-purple-500/30 transition-all group"
+                                            title={`${tokenName} ${tokenId}`}
+                                        >
+                                            {imageUrl ? (
+                                                <img
+                                                    src={imageUrl}
+                                                    alt={tokenName}
+                                                    className="w-full aspect-square object-cover rounded-md mb-1.5"
+                                                    onError={(e) => {
+                                                        (e.target as HTMLImageElement).src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%231a1a1a" width="100" height="100"/><text x="50" y="50" text-anchor="middle" dy=".3em" fill="%23666" font-size="12">NFT</text></svg>';
+                                                    }}
+                                                />
+                                            ) : (
+                                                <div className="w-full aspect-square bg-gray-800 rounded-md mb-1.5 flex items-center justify-center">
+                                                    <span className="text-2xl">{isNFT ? '🖼️' : '🪙'}</span>
+                                                </div>
+                                            )}
+                                            <p className="text-xs text-gray-300 truncate font-medium">{tokenName}</p>
+                                            <p className="text-xs text-gray-500 truncate">{tokenId || (isNFT ? 'NFT' : 'Token')}</p>
+                                        </div>
+                                    );
+                                })}
                             </div>
                         </div>
                     )}
-                </div>
 
-                {error && (
-                    <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-xl text-sm mb-6 flex items-center gap-2">
-                        <CloudOff className="w-4 h-4" />
-                        {error}
-                    </div>
-                )}
-
-                <div className="grid grid-cols-4 gap-2 md:flex md:space-x-2 md:gap-0 mb-6 bg-gray-900/50 p-1 rounded-lg">
-                    {(['24h', '3d', '7d', '14d', '30d', '60d', '90d', 'all'] as const).map((tab) => (
-                        <button
-                            key={tab}
-                            onClick={() => setActiveTab(tab)}
-                            className={`flex-1 py-1.5 text-xs font-medium rounded-md transition-all ${activeTab === tab
-                                ? 'bg-purple-600 text-black shadow-lg'
-                                : 'text-gray-400 hover:text-white hover:bg-white/5'
-                                }`}
-                        >
-                            {tab.toUpperCase()}
-                        </button>
-                    ))}
-                </div>
-
-                {loading && transactions.length === 0 ? (
-                    <div className="flex flex-col items-center justify-center py-20 space-y-4">
-                        <Loader2 className="w-10 h-10 text-purple-500 animate-spin" />
-                        <p className="text-gray-400 text-sm animate-pulse">Scanning blockchain history...</p>
-                    </div>
-                ) : (
-                    <>
-                        {loading && (
-                            <div className="mb-4 bg-purple-500/10 border border-purple-500/20 rounded-lg p-3 flex items-center justify-between animate-pulse">
-                                <div className="flex items-center gap-2">
-                                    <Loader2 className="w-4 h-4 text-purple-400 animate-spin" />
-                                    <span className="text-sm text-purple-200">
-                                        Scanning blockchain history...
-                                        <span className="font-mono ml-2 font-bold">
-                                            {transactions.length.toLocaleString()}
-                                            {counters ? ` / ${Number(counters.transactions_count).toLocaleString()}` : ''} TXs
-                                        </span>
-                                    </span>
+                    {/* Breakdown Popup */}
+                    {selectedCategory && stats?.breakdown && stats.breakdown[selectedCategory] && (
+                        <div className="fixed inset-0 z-60 flex items-center justify-center bg-black/50" onClick={() => setSelectedCategory(null)}>
+                            <div className="bg-[#0a0a0a] border border-gray-800 rounded-xl p-6 max-w-md w-full mx-4" onClick={e => e.stopPropagation()}>
+                                <div className="flex justify-between items-center mb-4">
+                                    <h3 className="text-lg font-bold text-white capitalize">{selectedCategory} Breakdown</h3>
+                                    <button onClick={() => setSelectedCategory(null)} className="text-gray-500 hover:text-white">
+                                        <X className="w-5 h-5" />
+                                    </button>
                                 </div>
-                                <span className="text-xs text-purple-400 font-medium tracking-wider uppercase">Live Update</span>
-                            </div>
-                        )}
-                        <div className="grid grid-cols-2 gap-2 md:gap-4">
-                            {stats ? (
-                                <>
-                                    <StatCard
-                                        label={activeTab === 'all' ? "Total Transactions" : `Last ${activeTab.replace('h', ' Hours').replace('d', ' Days')}`}
-                                        value={stats.count.toLocaleString()}
-                                        unit="TXS"
-                                        icon={Clock}
-                                        delay={0}
-                                    />
-                                    <StatCard
-                                        label="Total Volume"
-                                        value={stats.volume}
-                                        icon={Trophy}
-                                        delay={1}
-                                    />
-                                    <StatCard
-                                        label="Swaps"
-                                        value={stats.swap_count || 0}
-                                        icon={RefreshCcw}
-                                        delay={2}
-                                        onClick={() => setSelectedCategory('swap')}
-                                        hasBreakdown={stats.breakdown && Object.keys(stats.breakdown.swap || {}).length > 0}
-                                    />
-                                    <StatCard
-                                        label="Licenses"
-                                        value={stats.license_count || 0}
-                                        subValue="Consumer (Buyer)"
-                                        icon={BadgeCheck}
-                                        delay={3}
-                                        onClick={() => setSelectedCategory('license')}
-                                        hasBreakdown={stats.breakdown && Object.keys(stats.breakdown.license || {}).length > 0}
-                                    />
-                                    <StatCard
-                                        label="Assets"
-                                        value={stats.asset_count || 0}
-                                        subValue="Creator (IP Owner)"
-                                        icon={FileText}
-                                        delay={4}
-                                        onClick={() => setSelectedCategory('asset')}
-                                        hasBreakdown={stats.breakdown && Object.keys(stats.breakdown.asset || {}).length > 0}
-                                    />
-                                    <StatCard
-                                        label="Others"
-                                        value={stats.other_count || 0}
-                                        icon={MoreHorizontal}
-                                        delay={5}
-                                        onClick={() => setSelectedCategory('other')}
-                                        hasBreakdown={stats.breakdown && Object.keys(stats.breakdown.other || {}).length > 0}
-                                    />
-                                </>
-                            ) : (
-                                <div className="col-span-full text-center text-gray-500 py-8">No data available for this period.</div>
-                            )}
-                        </div>
-                    </>
-                )}
+                                <div className="space-y-2 max-h-60 overflow-y-auto">
+                                    {Object.entries(stats.breakdown[selectedCategory])
+                                        .sort((a, b) => b[1] - a[1])
+                                        .slice(0, 10)
+                                        .map(([key, count], i) => {
+                                            // HUMAN READABLE NAMES MAPPING
+                                            const getReadableName = (name: string) => {
+                                                const map: Record<string, string> = {
+                                                    'SwapRouter': 'Story Swap',
+                                                    'PiperXRouter': 'PiperX DEX',
+                                                    'SudoSwap': 'SudoSwap NFT',
+                                                    'StoryProtocol': 'Story Protocol Core',
+                                                    'SimpleSPGNFT': 'SPG NFT Collection',
+                                                    'ERC1967Proxy': 'Story Protocol Core',
+                                                    'Operator': 'Story Protocol Core',
+                                                    'Unknown': 'Unknown Contract'
+                                                };
+                                                if (map[name]) return map[name];
 
-                {!loading && stats && (
-                    <div className="mt-6 pt-4 border-t border-gray-800 text-center">
-                        <p className="text-xs text-gray-600">
-                            Volume counts only <strong>Contract Interactions</strong> (dApps, Minting, etc). Wallet transfers excluded.
-                        </p>
-                    </div>
-                )}
-
-                {/* 🆕 NFT/TOKEN GALLERY */}
-                {tokenBalances.length > 0 && (
-                    <div className="mt-6 pt-4 border-t border-gray-800">
-                        <h3 className="text-sm font-semibold text-white mb-3 flex items-center gap-2">
-                            <Trophy className="w-4 h-4 text-yellow-500" />
-                            Owned Assets ({tokenBalances.length})
-                        </h3>
-                        <div className="grid grid-cols-4 gap-2 max-h-48 overflow-y-auto">
-                            {tokenBalances.slice(0, 100).map((item: any, idx: number) => {
-                                const token = item.token || {};
-                                const instance = item.token_instance || {};
-                                const imageUrl = instance.image_url || token.icon_url;
-                                const tokenName = token.name || token.symbol || 'Token';
-                                const tokenId = instance.id ? `#${instance.id}` : '';
-                                const isNFT = token.type === 'ERC-721' || token.type === 'ERC-1155';
-
-                                return (
-                                    <div
-                                        key={idx}
-                                        className="bg-gray-900/50 border border-gray-800 rounded-lg p-2 hover:border-purple-500/30 transition-all group"
-                                        title={`${tokenName} ${tokenId}`}
-                                    >
-                                        {imageUrl ? (
-                                            <img
-                                                src={imageUrl}
-                                                alt={tokenName}
-                                                className="w-full aspect-square object-cover rounded-md mb-1.5"
-                                                onError={(e) => {
-                                                    (e.target as HTMLImageElement).src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%231a1a1a" width="100" height="100"/><text x="50" y="50" text-anchor="middle" dy=".3em" fill="%23666" font-size="12">NFT</text></svg>';
-                                                }}
-                                            />
-                                        ) : (
-                                            <div className="w-full aspect-square bg-gray-800 rounded-md mb-1.5 flex items-center justify-center">
-                                                <span className="text-2xl">{isNFT ? '🖼️' : '🪙'}</span>
-                                            </div>
-                                        )}
-                                        <p className="text-xs text-gray-300 truncate font-medium">{tokenName}</p>
-                                        <p className="text-xs text-gray-500 truncate">{tokenId || (isNFT ? 'NFT' : 'Token')}</p>
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </div>
-                )}
-
-                {/* Breakdown Popup */}
-                {selectedCategory && stats?.breakdown && stats.breakdown[selectedCategory] && (
-                    <div className="fixed inset-0 z-60 flex items-center justify-center bg-black/50" onClick={() => setSelectedCategory(null)}>
-                        <div className="bg-[#0a0a0a] border border-gray-800 rounded-xl p-6 max-w-md w-full mx-4" onClick={e => e.stopPropagation()}>
-                            <div className="flex justify-between items-center mb-4">
-                                <h3 className="text-lg font-bold text-white capitalize">{selectedCategory} Breakdown</h3>
-                                <button onClick={() => setSelectedCategory(null)} className="text-gray-500 hover:text-white">
-                                    <X className="w-5 h-5" />
-                                </button>
-                            </div>
-                            <div className="space-y-2 max-h-60 overflow-y-auto">
-                                {Object.entries(stats.breakdown[selectedCategory])
-                                    .sort((a, b) => b[1] - a[1])
-                                    .slice(0, 10)
-                                    .map(([key, count], i) => {
-                                        // HUMAN READABLE NAMES MAPPING
-                                        const getReadableName = (name: string) => {
-                                            const map: Record<string, string> = {
-                                                'SwapRouter': 'Story Swap',
-                                                'PiperXRouter': 'PiperX DEX',
-                                                'SudoSwap': 'SudoSwap NFT',
-                                                'StoryProtocol': 'Story Protocol Core',
-                                                'SimpleSPGNFT': 'SPG NFT Collection',
-                                                'ERC1967Proxy': 'Story Protocol Core',
-                                                'Operator': 'Story Protocol Core',
-                                                'Unknown': 'Unknown Contract'
+                                                // Format Hex: 0x1234...5678
+                                                if (name.startsWith('0x') && name.length > 10) {
+                                                    return `Contract (${name.slice(0, 6)}...${name.slice(-4)})`;
+                                                }
+                                                return name;
                                             };
-                                            if (map[name]) return map[name];
 
-                                            // Format Hex: 0x1234...5678
-                                            if (name.startsWith('0x') && name.length > 10) {
-                                                return `Contract (${name.slice(0, 6)}...${name.slice(-4)})`;
-                                            }
-                                            return name;
-                                        };
+                                            // key format: "ContractName|MethodName"
+                                            const parts = key.split('|');
+                                            const rawName = parts[0];
+                                            const method = parts.length > 1 ? parts[1] : '';
 
-                                        // key format: "ContractName|MethodName"
-                                        const parts = key.split('|');
-                                        const rawName = parts[0];
-                                        const method = parts.length > 1 ? parts[1] : '';
-
-                                        return (
-                                            <div key={i} className="flex justify-between items-center p-3 bg-gray-900/50 rounded-lg">
-                                                <div className="flex flex-col overflow-hidden mr-3">
-                                                    <span className="text-gray-300 text-sm truncate font-medium" title={rawName}>
-                                                        {getReadableName(rawName)}
-                                                    </span>
-                                                    {method && (
-                                                        <span className="text-xs text-gray-500 font-mono truncate lowercase">
-                                                            {method}
+                                            return (
+                                                <div key={i} className="flex justify-between items-center p-3 bg-gray-900/50 rounded-lg">
+                                                    <div className="flex flex-col overflow-hidden mr-3">
+                                                        <span className="text-gray-300 text-sm truncate font-medium" title={rawName}>
+                                                            {getReadableName(rawName)}
                                                         </span>
-                                                    )}
+                                                        {method && (
+                                                            <span className="text-xs text-gray-500 font-mono truncate lowercase">
+                                                                {method}
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                    <span className="text-purple-400 font-bold shrink-0">{count}</span>
                                                 </div>
-                                                <span className="text-purple-400 font-bold shrink-0">{count}</span>
-                                            </div>
-                                        );
-                                    })}
+                                            );
+                                        })}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                )}
+                    )}
+                </div> {/* End relative z-10 */}
             </div>
         </div>
     );
@@ -543,17 +576,17 @@ export function WalletDetailsModal({ isOpen, onClose, address, name, precalculat
 function StatCard({ label, value, unit, subValue, icon: Icon, delay, onClick, hasBreakdown }: { label: string, value: string | number, unit?: string, subValue?: string, icon: any, delay: number, onClick?: () => void, hasBreakdown?: boolean }) {
     return (
         <div
-            className={`bg-gray-900/50 border border-gray-800 p-5 rounded-xl flex items-center justify-between hover:border-purple-500/30 transition-all duration-300 group ${onClick ? 'cursor-pointer' : ''}`}
+            className={`bg-white/5 border border-white/5 p-5 rounded-xl flex items-center justify-between hover:border-purple-500/30 hover:bg-white/10 transition-all duration-300 group backdrop-blur-sm ${onClick ? 'cursor-pointer' : ''}`}
             style={{ animationDelay: `${delay * 75}ms` }}
             onClick={onClick}
         >
             <div>
-                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1 flex items-center gap-1">
+                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1 flex items-center gap-1">
                     {label}
                     {hasBreakdown && <ChevronRight className="w-3 h-3 text-purple-500" />}
                 </p>
                 <div className="flex items-baseline gap-2">
-                    <span className="text-2xl font-bold text-white group-hover:text-purple-400 transition-colors">
+                    <span className="text-2xl font-bold text-white group-hover:text-purple-300 transition-colors drop-shadow-lg">
                         {value}
                     </span>
                     {unit && <span className="text-xs text-gray-600">{unit}</span>}
