@@ -2,7 +2,7 @@ name: Live Data Update
 
 on:
   schedule:
-    - cron: '0 */23 * * *' # Every 2 hours
+    - cron: '0 */200 * * *' # Every 2 hours
   workflow_dispatch:
 
 permissions:
